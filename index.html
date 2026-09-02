@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>회의지원시스템</title>	
+	<link rel="stylesheet" type="text/css" href="http://rlaalswo22.dothome.co.kr/hd_css/reset.css">
+	<link rel="stylesheet" type="text/css" href="https://img.ezwelfare.net/welfare_new/css/notokr_font.css">
+	<link rel="stylesheet" type="text/css" href="http://rlaalswo22.dothome.co.kr/hd_css/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="./css/meeting.css">
+</head>
+<body>
+	<div class="viewer_wrap">
+		<div class="drawing_wrap">
+			<i class="drawing_close"></i>
+			<div class="drawing_section">
+				<p class="drawing_tit">색상</p>
+				<div class="drawing_color_box">
+					<input type="button" value="" onclick="penColorList(1)" class="pallet_color" style="background-color:black;">
+					<input type="button" value="" onclick="penColorList(2)" class="pallet_color" style="background-color:blue;">
+					<input type="button" value="" onclick="penColorList(3)" class="pallet_color" style="background-color:green;">
+					<input type="button" value="" onclick="penColorList(4)" class="pallet_color" style="background-color:yellow;">
+					<input type="button" value="" onclick="penColorList(5)" class="pallet_color" style="background-color:red;">
+					<input type="color" value="" id="colorRange" class="pallet_color pallet_color_last">
+				</div>
+			</div>
+			<div class="drawing_section drawing_section_middle">
+				<p class="drawing_tit">선 두께</p>
+				<input type="range" id="penRange" min="1" max="100" value="5" class="line_thickness"> 
+				<div class="range_desc_box">
+					<span class="desc_first">가늘게</span>
+					<span class="desc_second">굵게</span>
+				</div>
+			</div>
+			<div class="drawing_section">
+				<input type="button" value="되돌리기" onClick="prevCanvas(event)" class="control_drawing back_drawing"> 
+				<input type="button" value="지우기" onclick="eraser()" class="control_drawing eraser_drawing">
+				<input type="button" value="기존내용 지우기" class="control_drawing total_drawing"> 
+			</div>
+		</div>
+		<div class="viewer_top">
+			<a href="javascript:void(0)" class="back">회의시스템</a>
+			<a href="javascript:void(0)" onclick="openViewerList();" class="list">목차</a>
+			<a href="javascript:void(0)" class="stiker_memo" onclick=";">텍스트</a> 
+			<a href="javascript:void(0)" class="drawing" onclick=";">드로잉</a> 
+			<a href="javascript:void(0)" class="full">전체화면</a>
+		</div>
+		<div class="viewer_slide"> 
+			<ul>
+				<li>
+					<div class="viewer_body">
+						<div class="viewer_body_sign">
+							<p class="title">회의지원시스템 표지</p>
+							<p class="date">2024.02.01 (목)</p>
+							<p class="meeting_logo">SB</p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="viewer_body">
+						<img src="./images/meeting_pdf_img.png" alt="" class="viewer_canvas_img"> 
+					</div>
+				</li>
+				<li>
+					<div class="viewer_body">
+						<img src="./images/meeting_pdf_img.png" alt="" class="viewer_canvas_img"> 
+					</div>
+				</li>
+				<li>
+					<div class="viewer_body">
+						<img src="./images/meeting_pdf_img.png" alt="" class="viewer_canvas_img"> 
+					</div>
+				</li>
+			</ul>
+			<div class="viewer_button_02">
+				<span class="viewer_button_02_prev"></span>
+				<span class="viewer_button_02_next"></span>
+			</div>
+		</div> 
+		<div class="viewer_list_layer">
+			<div class="viewer_list_top">
+				<p>목차</p>
+				<div class="viewer_search">
+					<input type="text" name="" id="" onclick="" class="viewer_search_input" placeholder="부서명을 입력하세요">
+					<a href="javascript:void(0)" class="search_close">x</a> 
+					<a href="javascript:void(0)" class="search">검색</a>
+				</div>
+			</div>
+			<dl>
+				<dt>표지</dt>	
+				<dd><a href="javascript:void(0)">SB</a></dd>
+				<dd><a href="javascript:void(0)">1. 부서</a></dd>
+				<dd><a href="javascript:void(0)">2. 부서</a></dd>
+				<dd><a href="javascript:void(0)">3. 부서</a></dd>
+				<dd><a href="javascript:void(0)">4. 부서</a></dd>
+				<dd><a href="javascript:void(0)">5. 부서</a></dd>
+				<dd><a href="javascript:void(0)">6. 부서</a></dd>
+				<dd><a href="javascript:void(0)">7. 부서</a></dd>
+				<dd><a href="javascript:void(0)">8. 부서</a></dd>
+				<dd><a href="javascript:void(0)">9. 부서</a></dd>
+				<dd><a href="javascript:void(0)">10. 부서</a></dd>
+			</dl>
+		</div>
+		<div class="viewer_total_drawing_layer viewer_total_drawing_layer01">
+			<p class="drawing_layer_tit">
+				지운 내용은 복구할 수 없습니다. 지우시겠습니까?
+			</p>
+			<div class="drawing_layer_btn_wrap">
+				<a href="javascript:void(0)" class="drawing_layer_btn drawing_layer_btn_yes drawing_layer_btn_yes01">예</a>
+				<a href="javascript:void(0)" class="drawing_layer_btn drawing_layer_btn_no">아니오</a>
+			</div>
+		</div> 
+		<div class="viewer_total_drawing_layer viewer_total_drawing_layer02">
+			<p class="drawing_layer_tit">
+				지운 메모는 복구할 수 없습니다. <br><br> 지우시겠습니까?
+			</p>
+			<div class="drawing_layer_btn_wrap">
+				<a href="javascript:void(0)" class="drawing_layer_btn drawing_layer_btn_yes drawing_layer_btn_yes02">예</a>
+				<a href="javascript:void(0)" class="drawing_layer_btn drawing_layer_btn_no">아니오</a>
+			</div>
+		</div> 
+		<div class="layer_bg"></div> 
+		<canvas id="canvas" width="" height="">
+			Your browser doesn’t support the HTML5 canvas element.
+		</canvas>
+	</div>
+</body>
+</html>
+<script type="text/javascript" src="http://rlaalswo22.dothome.co.kr/hd_js/jquery.js"></script>
+<script type="text/javascript" src="http://rlaalswo22.dothome.co.kr/hd_js/slick.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//F11 전체화면 아이콘, 텍스트 변경 
+		$(".viewer_wrap .viewer_top > a.full").on("click", function () {
+			if($(this).hasClass("on")){
+				fullViewerListClose();
+			}else{
+				fullViewerList();
+			}
+		}); 
+		$(document).on('keydown',function(e){
+			if ( e.keyCode == 122 /* F11 */) {
+				e.preventDefault();
+
+				fullViewerList();
+
+				e.returnValue = false;
+			}
+		});
+		$(document).on("fullscreenchange", function () {
+			if (document.fullscreenElement) {
+				$(".viewer_wrap .viewer_top > a.full").addClass("on").text("전체화면종료");
+				$(".viewer_top .drawing").addClass("on");
+				$(".viewer_top .stiker_memo").addClass("on");
+				$(".viewer_wrap .viewer_slide").addClass("on");
+				$("canvas").addClass("on"); 
+				$(".sticky.draggable").show(); 
+			} else {
+				$(".viewer_wrap .viewer_top > a.full").removeClass("on").text("전체화면");
+				$(".viewer_top .drawing").removeClass("on");
+				$(".viewer_top .stiker_memo").removeClass("on");
+				$(".viewer_wrap .viewer_slide").removeClass("on");
+				$("canvas").removeClass("on");
+				$(".viewer_wrap .drawing_wrap").removeClass("on"); 
+				$(".sticky.draggable").hide(); 
+			}
+		});
+
+		//필기 팔레트 on/off 
+		$(".viewer_top .drawing").on("click", function(){
+			$(".viewer_wrap .drawing_wrap").addClass("on");
+		});
+		$(".drawing_wrap .drawing_close").on("click", function(){
+			$(".viewer_wrap .drawing_wrap").removeClass("on");
+		});
+		
+		//input range 
+		$('#penRange').on('input', function(){
+			var val = $(this).val();
+			$(this).css('background', 'linear-gradient(to right, #1e9d8b 0%, #1e9d8b '+ val +'%, ' + val + '%, #ddd 100%)');
+		});
+
+		//기존내용 지우기 팝업 
+		$(".total_drawing").on("click", function(){
+			$(".viewer_total_drawing_layer01").addClass("on");
+			$(".layer_bg").addClass("on");
+		});
+		$(".drawing_layer_btn").on("click", function(){
+			if($(this).hasClass("drawing_layer_btn_yes01")){
+				eraserReset();
+			}
+			$(".viewer_total_drawing_layer01").removeClass("on");
+			$(".layer_bg").removeClass("on");
+		});
+
+		// 뷰어슬라이드
+		$(".viewer_slide ul").slick({
+				infinite : false, 
+			arrows: true, 
+			autoplay: false,
+			fade: true,
+			speed: 500,
+			dots: false,
+		});
+		$('.viewer_slide .viewer_button_02_prev').on('click', function(){
+			$('.viewer_slide ul').slick("slickPrev");
+		});
+		$('.viewer_slide .viewer_button_02_next').on('click', function(){
+			$('.viewer_slide ul').slick("slickNext");
+		});
+		$(".viewer_slide ul").on("afterChange", function () {
+			if ($(".slick-prev").hasClass("slick-disabled")) {
+				$(".slick-prev").addClass("slick-disabled");
+			} else {
+				$(".slick-prev").removeClass("slick-disabled");
+			}
+			if ($(".slick-next").hasClass("slick-disabled")) {
+				$(".slick-next").addClass("slick-disabled");
+			} else {
+				$(".slick-next").removeClass("slick-disabled");
+			}
+		});
+		$(window).on("keyup", function(e) {
+			if(!$('.viewer_list_layer').hasClass('control')){
+				if (e.keyCode == 8 || e.keyCode == 37 || e.keyCode == 38 || e.keyCode == 33) {
+					e.preventDefault();
+					$(".slick-prev").click()
+				}
+				else if (e.keyCode == 13 || e.keyCode == 39 || e.keyCode == 40 || e.keyCode == 34) {
+					e.preventDefault();
+					$(".slick-next").click()
+				}
+			}
+		});
+	});
+
+	// 뷰어목차 열기 / 닫기
+	function openViewerList() {
+
+		$(".viewer_list_layer").addClass("control"); //keyup control
+
+		$(".viewer_list_layer").animate({
+			right:0
+		},500);
+		$(".viewer_list_layer").one("mouseleave", function(){
+
+			$(".viewer_list_layer").removeClass("control"); //keyup control
+
+			$(this).animate({
+				right:"-380px"
+			},500);
+		});
+		return false;
+	}
+
+	// F11 전체화면on
+	function fullViewerList() {
+		var fullScreen = document.documentElement;
+
+		if (!document.fullscreenElement) {
+			if (fullScreen.requestFullscreen) return fullScreen.requestFullscreen()
+			if (fullScreen.webkitRequestFullscreen) return fullScreen.webkitRequestFullscreen()
+			if (fullScreen.mozRequestFullScreen) return fullScreen.mozRequestFullScreen()
+			if (fullScreen.msRequestFullscreen) return fullScreen.msRequestFullscreen()
+		} 
+	}
+	// F11 전체화면off
+	function fullViewerListClose() {
+		if (document.fullscreenElement) {
+			if (document.exitFullscreen) return document.exitFullscreen()
+			if (document.webkitCancelFullscreen) return document.webkitCancelFullscreen()
+			if (document.mozCancelFullScreen) return document.mozCancelFullScreen()
+			if (document.msExitFullscreen) return document.msExitFullscreen()
+		} 
+	}
+</script>
+<!-- canvas  -->
+<script type="text/javascript">	
+	// jquery ver 1
+	var canvas,
+		ctx,
+		drawble = false,
+		del = 0,
+		restore_array = new Array();
+
+	// 지우개 커스텀 1, 2
+	// var eraserCs = new Image();
+	// eraserCs.src = 'https://img.ezwelfare.net/welfare_upload/etc/2023/08/230818_eraser_custom.png';
+
+	$(window).on("load resize", function(){
+		canvas = $("#canvas");
+		ctx = canvas[0].getContext("2d");  
+
+		var canvasSize = $(".viewer_canvas_img");
+		canvas[0].width = canvasSize.width();
+		canvas[0].height = canvasSize.height();
+
+		ctx.lineWidth = $("#penRange").val(); 
+		ctx.strokeStyle = $("#colorRange").val(); 
+		ctx.lineCap = 'round';
+		ctx.lineJoin = 'round';
+
+		var canvasLeft = ($(window).outerWidth() - canvas[0].width)/2; 
+
+		canvas.css("left", canvasLeft);
+
+		setBackground();
+		cursorPen(); 
+	});
+	// 이미지 설정
+	function setBackground(){
+		var image = new Image();
+
+		image.onload = function(){
+			ctx.drawImage(image, 0, 0, canvas[0].width, canvas[0].height);
+		}
+
+		image.crossOrigin = 'Anonymous';
+		// image.src = " https://img.ezwelfare.net/welfare_upload/etc/2022/11/221129_pallet_test.png ";
+		image.src = "./images/meeting_canvas_test.png";
+	};
+
+	$(window).on("load", function(){
+		init();
+	});
+	function init(){
+		canvas.on("mousedown", pcDraw);
+		canvas.on("mousemove", pcDraw);
+		canvas.on("mouseup", pcDraw);
+		canvas.on("mouseout", pcDraw);
+
+		canvas.on("touchstart", mobileDraw);
+		canvas.on("touchend", mobileDraw);
+		canvas.on("touchcancel", mobileDraw);
+		canvas.on("touchmove", mobileDraw);
+	};	
+
+	// pc 좌표
+	function pcDraw(evt){
+		evt.preventDefault(); 
+
+		switch(evt.type){
+			case "mousedown" : {
+				BodyScrollDisAble();
+				drawble = true;
+				ctx.beginPath();
+				ctx.moveTo(getPcPosition(evt).X, getPcPosition(evt).Y);    
+
+				saveCanvas(); 
+
+			}
+			break;
+
+			case "mousemove" : {
+				if(drawble && del==0){
+					// 지우개 커스텀 3
+					// ctx.globalCompositeOperation = 'source-over';
+
+					ctx.lineTo(getPcPosition(evt).X, getPcPosition(evt).Y);
+					ctx.stroke();
+
+				}else if(drawble && del==1){
+					ctx.clearRect(getPcPosition(evt).X - ctx.lineWidth / 2, getPcPosition(evt).Y - ctx.lineWidth / 2, ctx.lineWidth, ctx.lineWidth);
+
+					//지우개 커스텀 4
+					// ctx.globalCompositeOperation = 'destination-out';
+					// ctx.drawImage(eraserCs, getPcPosition(evt).X - ctx.lineWidth / 2, getPcPosition(evt).Y - ctx.lineWidth / 2, ctx.lineWidth, ctx.lineWidth);
+				}
+			}
+			break;
+
+			case "mouseup" :
+			case "mouseout" : {
+				BodyScrollDisAble();
+				drawble = false;
+				ctx.closePath();
+			}
+			break;
+
+		}
+	};
+	function getPcPosition(evt){          
+		var x = evt.pageX - canvas.offset().left;
+		var y = evt.pageY - canvas.offset().top;
+		return {X:x, Y:y};
+	};
+
+	// mobile 설정
+	function mobileDraw(evt){
+		evt.preventDefault(); 
+
+		switch(evt.type){
+			case "touchstart" : {
+				BodyScrollDisAble(); 
+				drawble = true;
+				ctx.beginPath();
+				ctx.moveTo(getMobilePosition(evt).X, getMobilePosition(evt).Y);
+
+				saveCanvas(); 
+
+			}
+			break;
+
+			case "touchmove" : {
+				if(drawble && del==0){
+					ctx.lineTo(getMobilePosition(evt).X, getMobilePosition(evt).Y);
+					ctx.stroke();
+					
+				}else if(drawble && del==1){
+					ctx.clearRect(getMobilePosition(evt).X - ctx.lineWidth / 2, getMobilePosition(evt).Y - ctx.lineWidth / 2, ctx.lineWidth, ctx.lineWidth); 
+				}
+			}
+			break;
+
+			case "touchend" :
+			case "touchcancel" : {
+				BodyScrollDisAble(); 
+				drawble = false;
+				ctx.closePath();
+			}
+			break;
+		}
+	};
+	function getMobilePosition(evt){
+		var x = evt.originalEvent.changedTouches[0].pageX - canvas.offset().left;
+		var y = evt.originalEvent.changedTouches[0].pageY - canvas.offset().top;
+		return {X:x, Y:y};
+	}; 
+
+	// 스크롤 off
+	function BodyScrollDisAble(){
+		document.body.style.overflow = "hidden"; 
+	};
+	// 스크롤 on
+	function BodyScrollAble(){  
+		document.body.style.overflow = "auto"; 
+	};
+
+	// 지우개
+	function eraser(){
+		cursorEraser(); 
+
+		del = 1;
+	};
+
+	// 모두 지우기
+	function eraserReset(){
+		ctx.clearRect(0,0,canvas[0].width, canvas[0].height);
+	};
+
+	// 펜 색상 설정
+	function penColorList(num){
+		cursorPen(); 
+ 
+		del = 0;
+
+		if(num == 1){
+			$("#colorRange").val("#000000");
+			ctx.strokeStyle = "#000000";
+		}
+		if(num == 2){
+			$("#colorRange").val("#0000FF");
+			ctx.strokeStyle = "#0000FF";
+		}
+		if(num == 3){
+			$("#colorRange").val("#008000");
+			ctx.strokeStyle = "#008000";
+		}
+		if(num == 4){
+			$("#colorRange").val("#FFFF00");
+			ctx.strokeStyle = "#FFFF00";
+		}
+		if(num == 5){
+			$("#colorRange").val("#FF0000");
+			ctx.strokeStyle = "#FF0000";
+		}
+	}; 
+
+	// 이미지 저장
+	function savePicture(){
+		var link = document.createElement("a");
+
+		link.href = canvas[0].toDataURL("image/png"); 
+
+		link.download = "image.png";
+
+		document.body.appendChild(link);
+		
+		link.click();          
+
+		document.body.removeChild(link);
+	};
+
+	// 좌표 저장
+	function saveCanvas(){
+		restore_array.push(ctx.getImageData(0,0,canvas[0].width, canvas[0].height));
+	}; 
+
+	// 뒤로가기
+	function prevCanvas(e){
+		e.preventDefault();
+
+		if(restore_array.length <= 0){
+			eraserReset();
+		}
+		else if(restore_array.length > 0){
+			ctx.putImageData(restore_array.pop(), 0 ,0);
+		}
+	}; 
+
+	// 커서 커스텀 (지우개)
+	function cursorEraser(){
+		canvas.css({'cursor':'url(//img.ezwelfare.net/welfare_new/images/meeting_admin/canvas_eraser02.png), auto'}); 
+	}
+
+	// 커서 커스텀 (펜)
+	function cursorPen(){
+		canvas.css({'cursor':'url(//img.ezwelfare.net/welfare_new/images/meeting_admin/canvas_pen02.png), auto'}); 
+	}
+
+	// 색상 range
+	document.getElementById('colorRange').addEventListener('change', (e) => {
+		cursorPen(); 
+
+		del = 0;
+
+		ctx.strokeStyle = e.target.value;
+	});
+	// 펜 range
+	document.getElementById('penRange').addEventListener('change', (e) => {
+		ctx.lineWidth = e.target.value;
+	});
+</script>
+<!-- jquery 버전2 (draggable 사용) -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script type="text/javascript" src="./js/meeting.js"></script>

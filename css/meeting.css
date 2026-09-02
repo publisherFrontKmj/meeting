@@ -1,0 +1,1150 @@
+@charset "utf-8";
+/************************************************
+    ezwell cadmin css
+************************************************/
+
+/* css reset */
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-family: "Dotum";
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size-adjust: none;
+}
+ol, ul, li { list-style: none; }
+table { border-collapse: collapse; }
+body {
+	color: #333; /* default color */
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 140%;
+}
+a { text-decoration: none; }
+a:link, a:active, a:visited { color: #333; }
+a:hover, a:focus { color: #0057a4; }
+button { cursor: pointer; }
+img { border: 0; }
+u{font-style:normal;}
+.vm{vertical-align:middle !important;}
+
+/******************************************************************
+	컬러 정의
+
+	- 기본 텍스트 : #333;
+	- 기본라인 : #dcdcdc;
+	- 기본배경색 : #f6f6f6;;
+	- 강조색 : #1e9d8b;
+*******************************************************************/
+
+/******************************************************************
+	TEXT / PASSWORD / SEARCH / NUMBER
+*******************************************************************/
+input[type="text"],
+input[type="password"],
+input[type="search"],
+input[type="number"] {
+	margin: 2px 0;
+	padding: 0 10px;
+	font-size: 12px;
+	height: 29px;
+	line-height: 29px;
+	color: #333;
+	border: 1px solid #dcdcdc;
+}
+input[type-text]::-ms-clear { display: none; }
+input[type="text"]:disabled { background-color: #eee; }
+input[type="button"] { cursor: pointer; }
+input[type="text"].date { width: 120px; padding: 0 35px 0 10px; background: #fff url("//img.ezwelfare.net/welfare_new/images/meeting_admin/icon_calendar.png") no-repeat 100% 50%; cursor: default;}
+input[type="text"].date:disabled { background: #eee url("//img.ezwelfare.net/welfare_new/images/meeting_admin/icon_calendar.png") no-repeat 100% 50%; }
+
+/******************************************************************
+	TEXTAREA
+*******************************************************************/
+textarea { font-size: 12px; padding: 10px; border: 1px solid #dcdcdc; }
+
+/******************************************************************
+	RADIO BUTTON
+*******************************************************************/
+input[type="radio"] { margin: 0; padding: 0; opacity: 0; width: 0; height: 19px; }
+input[type="radio"] + label { position: relative; display: inline-block; text-align: left; height: 19px; padding: 1px 0 0 29px; margin: 0 20px 0 0; line-height: 19px; vertical-align: top; font-family: "dotum"; }
+input[type="radio"] + label.hidden { position: relative; display: inline-block; text-align: left; width: 19px; height: 19px; padding: 0 0 0 19px; margin: 0; line-height: 19px; vertical-align: top; overflow: hidden; text-indent: -2000px; }
+input[type="radio"] + label:before { position: absolute; top: 0; left: 0;  content: ""; width: 19px; height: 19px; background-image: url("//img.ezwelfare.net/welfare_new/images/meeting_admin/icon_radio.png"); background-repeat: no-repeat; background-position: -40px 0; }
+input[type="radio"].survey + label:before { position: absolute; top: 0; left: 0; content: ""; width: 19px; height: 19px; background-image: url("//img.ezwelfare.net/welfare_cadmin/images/cadmin_survey_radio.png"); background-repeat: no-repeat; background-position: -40px 0; }
+input[type="radio"] + label span { display: inline-block; vertical-align: top; margin: 0 0 0 20px; font-size: 11px; }
+input[type="radio"] + label span:before { vertical-align: top; content: ""; width: 1px; height: 1px; margin: 10px 5px 0 0; background: #333; display: inline-block; }
+input[type="radio"]:checked + label:before { background-position: 0 0; }
+input[type="radio"]:disabled + label:before { background-position: -40px 0; }
+input[type="radio"]:checked:disabled + label:before { background-position: -20px 0; }
+
+/******************************************************************
+	CHECKBOX
+*******************************************************************/
+input[type="checkbox"] { margin: 0; padding: 0; opacity: 0; width: 0; }
+input[type="checkbox"] + label { font-size: 12px; display: inline-block; height: 38px; padding: 2px 0 0 27px; margin: 0 20px 0 0; line-height: 19px; position: relative; font-family: "dotum"; word-break: break-all; }
+input[type="checkbox"] + label.hidden { position: relative; display: inline-block; text-align: left; width: 19px; height: 19px; padding: 0; margin: 0; line-height: 19px; vertical-align: top; overflow: hidden; text-indent: -2000px; }
+input[type="checkbox"] + label:before { position: absolute; left: 0; top: 0; content: ""; display: inline-block; width: 19px; height: 19px; background-image: url("//img.ezwelfare.net/welfare_new/images/meeting_admin/icon_checkbox.png"); background-repeat: no-repeat; background-position: 0 0; }
+input[type="checkbox"].admin + label:before { position: absolute; left: 0; top: 0; content: ""; display: inline-block; width: 22px; height: 22px; background-image: url("//img.ezwelfare.net/welfare_new/images/meeting_admin/admin_login_checkbox.png"); background-repeat: no-repeat; background-position: 0 0; }
+input[type="checkbox"].survey + label:before { position: absolute; left: 0; top: 0; content: ""; display: inline-block; width: 22px; height: 22px; background-image: url("//img.ezwelfare.net/welfare_cadmin/images/cadmin_survey_checkbox.png"); background-repeat: no-repeat; background-position: 0 0; }
+input[type="checkbox"].redchk + label:before { position: absolute; left: 0; top: 0; content: ""; display: inline-block; width: 22px; height: 22px; background-image: url("//img.ezwelfare.net/welfare_cadmin/images/cadmin_redchk_checkbox.png"); background-repeat: no-repeat; background-position: 0 0; }
+input[type="checkbox"]:checked + label:before { background-position: -23px 0; }
+input[type="checkbox"]:disabled + label:before { background-position: -46px 0;}
+/* input[type="checkbox"]:checked:disabled + label:before { background-position: -69px 0; } 221004 삭제*/
+input[type="checkbox"].bjs + label {height: 19px;}
+
+/******************************************************************
+	SELECT
+*******************************************************************/
+select { margin: 2px 0; font-size: 12px; height: 29px; line-height: 29px; border-radius: 0; -webkit-appearance: none; -moz-appearance: none; appearance: none; padding: 0 40px 0 10px; border: 1px solid #dcdcdc; background: #fff url("//img.ezwelfare.net/welfare_cadmin/images/icon_select_arrow.png") no-repeat 100% 50%; }
+select::-ms-expand { display: none; }
+
+/******************************************************************
+	공통 레이아웃
+*******************************************************************/
+header { position: relative; z-index: 99; background: #f9f9f9 url("//img.ezwelfare.net/welfare_new/images/meeting_admin/header_bg.gif") no-repeat center 0;background-size:100% 5px;}
+header .loginfo {padding:5px 0 0 0;min-width:980px;max-width:1240px;height:50px;margin:0 auto;text-align:right;vertical-align:middle;}
+header .loginfo > li{margin:14px 9px 0 20px;float:right;}
+header .loginfo > li > a{display:inline-block;padding-left:26px;height:17px;line-height:17px;font-size:12px;color:#222;font-weight:bold;}
+header .loginfo > li > a.pw_change{padding-left: 0;} /*220823 추가*/
+header .loginfo .account{background:url("//img.ezwelfare.net/welfare_new/images/meeting_admin/icon_account.png") no-repeat 0 center;}
+header .loginfo .logout {background:url("//img.ezwelfare.net/welfare_new/images/meeting_admin/icon_logout.png") no-repeat 0 center;}
+header .header_wrap .header_box{width:100%;height:110px;border-bottom: 1px solid #999;background:#FFF;}
+header .header_wrap .gnb { min-width: 980px; max-width: 1240px;margin:0 auto;padding:29px 0;overflow: hidden;}
+header .header_wrap .gnb h1 {float: left;}
+header .header_wrap .gnb .util {text-align:right;}
+header .header_wrap .gnb .util a {display:inline-block;margin-left:68px;padding:0 8px;color:#333;font-size:22px;height:52px;line-height:52px;font-family:"notokr-bold";}
+header.fix { width: 100%; height: 75px;position: fixed;top: 0;left: 0; }
+header.fix .header_wrap { height: 75px; }
+header.fix .loginfo { display: none; }
+body.fix { padding: 175px 0 0; }
+
+/* mask */
+.mask { display: none; position: fixed; width: 100%; height: 100%; top: 0; left: 0; right: 0; bottom: 0; background: #000; opacity: 0.5; z-index: 98; }
+
+/******************************************************************
+	서브컨텐츠 영역 : 타이틀
+*******************************************************************/
+section.content_title { width:1240px;margin:0 auto; position: relative; border-bottom: 1px solid #dcdcdc; }
+
+
+.content_head { padding:0; min-width: 980px; max-width: 1240px; height: 119px; margin: 0 auto; }
+.content_head .path { padding: 10px 0 0; text-align: right; font-size: 13px; font-family: 'Noto Sans KR','Noto Sans'; display:none;}
+.content_head .path * { font-size: 12px; }
+.content_head .path span:after { content: ">"; margin: 0 2px 0 5px; }
+.content_head .path span:nth-last-of-type(1):after { display: none; }
+.content_head .path .home:before { display: inline-block; margin: 0 10px 0 0; content: ""; width: 11px; height: 10px; background: url("//img.ezwelfare.net/welfare_cadmin/images/cadmin_icon_bullet.png") no-repeat 0 -40px; }
+
+/******************************************************************
+	타이틀
+*******************************************************************/
+.btitle { height: 119px; padding:55px 0 0;font-size:30px;line-height:40px;position: relative;font-family:"notokr-bold";font-weight:normal;}
+.btitle span { display: inline-block; position: relative; color: #333; margin: 0 0 0 22px; padding: 3px 0 0 23px; font-size: 14px; font-weight: 400; line-height: 100%; vertical-align: top; }
+.btitle span:before { position: absolute; top: 2px; left: 0; content: ""; width: 1px; height: 17px; display: inline-block; background: #dedede; }
+.ctitle { font-family: 'Noto Sans KR'; font-weight: 500; font-size: 24px; line-height: 24px; margin: 0 0 30px; position: relative; padding: 0 0 0 20px; }
+.ctitle:before { display: inline-block; position: absolute; top: 5px; left: 0; content: ""; width: 8px; height: 8px; background: #1e9d8b; border-radius: 100%; }
+.stitle {font-family:"notokr-medium";font-size:16px;margin:0 0 20px;font-weight:normal;}
+.stitle:before { display: inline-block; content: ""; width: 7px; height: 7px; background: #fff; border: 3px solid #c6c6c6; border-radius: 100%; vertical-align: none; margin: 1px 8px 0 0; } /*20220819 vertical-align 수정*/
+.etitle { position: relative; font-size: 14px; margin: 0 0 20px; padding: 0 0 0 10px; }
+.etitle:before { position: absolute; left: 0px; top: 5px; content: ""; width: 4px; height: 4px; background: #ddd; }
+.guide_title { font-family: 'Noto Sans KR'; font-weight: 500; font-size: 24px; margin: 0 0 54px; color: red; margin: 50px 0 20px; }
+.guide_title:before { display: none; }
+
+/******************************************************************
+	서브컨텐츠 영역 : 컨텐츠
+*******************************************************************/
+/* layout : content-area */
+section.content_wrap { position: relative; z-index: 9; }
+section.content_wrap .content_body { padding: 30px 0;  min-width: 980px; max-width: 1240px; margin: 0 auto; }
+
+/******************************************************************
+	테이블 상단
+*******************************************************************/
+.tip { margin: 0 0 10px; font-size: 14px; line-height: 29px; text-align: right; }
+.tip em { font-weight: bold; font-style: normal; }
+.board_head { position: relative; display: table; width: 100%; padding: 0 0 10px; }
+.board_head .left { display: table-cell; padding: 0 0 10px; line-height: 29px; vertical-align: top;}
+.board_head .right,
+.board_head .tip { display: table-cell; line-height: 29px; padding: 0 0 10px; text-align: right; min-width: 200px; vertical-align: top;}
+.board_head .right *, .board_head .tip * { vertical-align: top; }
+.board_head #totalCnt { display: inline-block; -webkit-padding-before: 2px; padding-top: 3px; margin-right: 5px 0 0;}
+.board_head .guide_tip { display: table-cell; padding: 0 0 10px; }
+.board_head .ctitle { display: table-cell; }
+.board_head .stitle { display: table-cell; padding: 0 0 10px; }
+.board_head .con_box { margin: 0; }
+.board_head .con_box p { margin: 5px 0; }
+
+/******************************************************************
+	테이블 컨텐츠
+*******************************************************************/
+/* 상세보기/수정(등록형) */
+.board_edit { margin: 0 0 50px; border-top: 1px solid #333; }
+.board_edit table { width: 100%; }
+.board_edit table caption { display: none; }
+.board_edit table th { font-family: "Dotum"; text-align: left; min-width: 113px; font-size: 12px; line-height: 29px; padding: 10px 10px 8px 20px; background: #f6f6f6; border-left: 1px solid #c6c6c6; border-bottom: 1px solid #c6c6c6; vertical-align: top; }
+.board_edit table tr th:nth-of-type(1) { border-left: none; }
+.board_edit table td { font-size: 12px; line-height: 29px; padding: 8px 10px; border-left: 1px solid #c6c6c6; border-bottom: 1px solid #c6c6c6; }
+.board_edit table td * { vertical-align: middle; }
+.board_edit + .board_edit { margin: -20px 0 50px; }
+.board_edit + .board_list { margin: -20px 0 50px; }
+.board_edit table td p { padding: 2px 0; }
+table .board_ex { color: #999; font-size: 12px; line-height: 14px; }
+.board_edit .board_edit_btn_box{text-align: center;padding-top: 10px;} 
+
+/* 목록형 */
+.board_list { margin: 0 0 50px; border-top: 1px solid #333; }
+.board_list table { width: 100%; }
+.board_list table thead th { font-size: 12px; padding: 5px 10px; height: 50px; background: #f6f6f6; border-right: 1px solid #c6c6c6; border-bottom: 1px solid #c6c6c6; }
+.board_list table thead th + th { border-left: 1px solid #c6c6c6; }
+.board_list table thead th:last-child { border-right: none; }
+.board_list table tbody th, .board_list table tbody td { font-size: 12px; font-weight: normal; padding: 5px 10px; height: 50px; border-right: 1px solid #c6c6c6; border-bottom: 1px solid #c6c6c6; text-align: center; }
+.board_list table tbody td * { vertical-align: middle; }
+.board_list table tbody td a:not(.sbtn_com) { color: #1e9d8b; text-decoration: underline; }
+.board_list table tbody th:last-child { border-right: none; }
+.board_list table tbody td:last-child { border-right: none; }
+.board_list table tfoot th, .board_list table tfoot td { font-size: 12px; font-weight: normal; padding: 5px 10px; height: 50px; border-right: 1px solid #c6c6c6; border-bottom: 1px solid #c6c6c6; text-align: center; background: #e5fffc; }
+.board_list table tfoot th:last-child { border-right: none; }
+.board_list table tfoot td:last-child { border-right: none; }
+.board_list table .left { text-align: left; }
+
+.board_list table thead tr.caution,
+.board_list table tbody tr.caution { color: red; }
+
+
+/* 스크롤 있는 테이블 */
+.table_hscroll { margin: 0 0 50px; max-width: 1240px; overflow-x: auto; overflow-y: hidden; border-top: 1px solid #333; }
+.table_hscroll .board_list { width: auto; margin: 0; border-top: none; }
+.table_hscroll table { width: auto !important; min-width: 100%; table-layout: fixed; }
+.table_hscroll .board_list table th,
+.table_hscroll .board_list table td { white-space: nowrap; }
+.table_hscroll .board_list table td { cursor: default; } 
+.table_hscroll.table_hscroll_02 .board_list table td{ cursor: pointer;} 
+.meeting_list_wrap{margin: 0 0 50px; max-width: 1240px;}
+.meeting_list_wrap ul{display: none;}
+.meeting_list_wrap ul.on{display: block;}
+.meeting_list_wrap li{width: 100%; overflow: hidden; padding: 0 10px; border: 1px solid #c6c6c6; position: relative; margin-bottom: 5px;}
+.meeting_list_wrap li.meeting_list_color_01{background-color: rgba(230,244,242,0.5);} 
+.meeting_list_wrap li.meeting_list_color_02{background-color: rgba(251,244,233,0.5);} 
+.meeting_list_wrap li.meeting_list_last{margin-bottom: 0;}
+.meeting_list_wrap li::before{content: "";position: absolute;top: 0;left: 0;width: 10px;height: 100%;background-color: #999;}
+.meeting_list_wrap li.on::before{content: "";position: absolute;top: 0;left: 0;width: 10px;height: 100%;background-color: #0a9882;} 
+.meeting_list_wrap li .meeting_list_cont{float: left; text-align: center; line-height: 29px; padding: 10px 0;}
+.meeting_list_wrap li .meeting_list_cont.meeting_list_cont01{ width: 10%;}
+/* .meeting_list_wrap li .meeting_list_cont.meeting_list_cont01.meeting_list_cont01_monthly{background: linear-gradient(to right, #0db79d, #fff);} 
+.meeting_list_wrap li .meeting_list_cont.meeting_list_cont01.meeting_list_cont01_weekly{background: linear-gradient(to right, #f7aa2e, #fff);}  */
+.meeting_list_wrap li .meeting_list_cont.meeting_list_cont02{ width: 32.5%; font-size: 16px;}
+.meeting_list_wrap li .meeting_list_cont.meeting_list_cont03{ width: 17.5%;}
+.meeting_list_wrap li .meeting_list_cont.meeting_list_cont04{ float: right; margin: 10px; line-height: 28px; padding: 0 10px;} 
+
+
+/******************************************************************
+	테이블 2개
+*******************************************************************/
+[class^="board_list"] + [class^="board_edit"] { margin: -20px 0 50px; }
+[class^="board_edit"] + [class^="board_list"] { margin: -20px 0 50px; }
+
+/* 필수항목 */
+.required { margin: 0 5px 0 0; color: #1e9d8b; }
+
+/* 테이블 하단 버튼 정렬 ( board_foot 클래스 삭제하고 이 클래스로 통일 */
+.button_area { margin: 0 0 50px; text-align: center; }
+.button_area * { vertical-align: middle; }
+
+/******************************************************************
+	버튼 스타일
+*******************************************************************/
+/* 큰버튼 */
+[class^="btn_"] { font-family: "dotum"; white-space: nowrap; font-family: "dotum"; font-weight: normal; margin: 2px; color: #fff !important; font-weight: bold; display: inline-block; font-size: 16px; padding: 0 38px 0; height: 50px; line-height: 50px; border: 1px solid #333; background: #333; vertical-align: middle; }
+[class^="btn_com"]  { color: #fff !important; border: 1px solid #333; background: #333; }
+[class^="btn_cp_auth"] { background: #1e9d8b; border: 1px solid #1e9d8b; }
+[class^="btn_login"] { background: #1e9d8b; border: 1px solid #1e9d8b; }
+[class^="btn_active"] { background: #1e9d8b; border: 1px solid #1e9d8b; }
+[class^="btn_save"] { background: #1e9d8b; border: 1px solid #1e9d8b; }
+[class^="btn_step"] { color: #333 !important; background: #fff; border: 1px solid #333; }
+[class^="btn_comment_reg"] { color: #fff !important; background: #666; border: 1px solid #ddd; }
+[class^="btn_excel"],
+[class^="btn_etc"] { color: #1e9d8b !important;  background: #fff; border: 1px solid #1e9d8b; }
+[class^="btn_dn"] { color: #1e9d8b !important; background: #fff; border: 1px solid #1e9d8b; }
+
+/* 테이블 내부 및 등록 상단 버튼 */
+[class^="sbtn_"] { font-family: "dotum"; white-space: nowrap; font-weight: normal; margin: 2px; color: #333 !important; display: inline-block; font-size: 12px; padding: 1px 10px 0; height: 29px; line-height: 29px; border: 1px solid #333; background: #fff; vertical-align: middle; }
+[class^="sbtn_active"],
+[class^="sbtn_excel"] { color: #fff !important;  background: #1e9d8b;  border: 1px solid #1e9d8b; }
+[class^="sbtn_excel2"] { color: #fff !important;  background: #333;  border: 1px solid #333; }
+[class^="sbtn_disabled"] { color: #c5c5c5 !important;  background: #fff;  border: 1px solid #c5c5c5; }
+[class^="sbtn_etc"] { color: #1e9d8b !important; background: #fff; border: 1px solid #1e9d8b; }
+[class^="sbtn_approval"] { color: #1e9d8b !important; background: #fff; border: 1px solid #1e9d8b; }
+[class^="sbtn_assign"],
+[class^="sbtn_dn"] { color: #fff !important; background: #1e9d8b; border: 1px solid #1e9d8b; }
+[class^="sbtn_menuview"] { vertical-align: top; color: #fff !important; background: #1e9d8b; border: 1px solid #1e9d8b; }
+[class^="sbtn_menuview"]:after { font-size: 10px; content: ">"; margin: 0 0 0 10px; }
+[class^="sbtn_que"] { padding: 0 0 0 25px; color: #1e9d8b !important; border: none; background: #fff url("//img.ezwelfare.net/welfare_cadmin/images/icon_tooltip.png") no-repeat 0 50%; }
+[class^="sbtn_file"] { width: 12px; height: 16px; padding: 0; display: inline-block; overflow: hidden; text-indent: -20000px; background: url("//img.ezwelfare.net/welfare_cadmin/images/icon_file.png") no-repeat 0 50%; border: none; }
+
+/* 아이콘 버튼 */
+[class^="ibtn_"] {display:inline-block;border:0;text-indent:-9999em;width:29px;height:29px;}
+[class^="ibtn_up"], [class^="ibtn_down"] {background:url(//img.ezwelfare.net/welfare_new/images/meeting_admin/icon_updown.png)no-repeat 0 0;}
+[class^="ibtn_down"]{background-position:-33px 0 ;}
+[class^="ibtn_upload"], [class^="ibtn_delete"], [class^="ibtn_download"] {background:url(//img.ezwelfare.net/welfare_new/images/meeting_admin/icon_file.png)no-repeat 0 0;}
+[class^="ibtn_delete"]{background-position:-34px 0 ;}
+[class^="ibtn_download"]{background-position:-68px 0 ;}
+[class^="ibtn_question"] {background:url(//img.ezwelfare.net/welfare_new/images/meeting_admin/icon_question.png)no-repeat center 0;height:19px;}
+/******************************************************************
+	컨텐츠 개별
+*******************************************************************/
+/* 메뉴권한 */
+.menu_auth { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+.menu_auth > div:nth-of-type(1) { padding: 0 30px 0 0; }
+.menu_auth > div:nth-of-type(2) ul > li:before { content: ""; display: inline-block; width: 1px; height: 1px; background: #333; margin: 12px 5px 0 0; vertical-align: top; }
+
+/* 관리권한 */
+.admin_auth ul { margin: -5px -10px; }
+.admin_auth ul > li { padding: 10px 10px 7px; border-bottom: 1px solid #dcdcdc; }
+.admin_auth ul > li:nth-last-of-type(1) { border: none; }
+span.point { color: #0295f5; }
+
+/* 흐름도 */
+.step { overflow: hidden; margin: 0 0 50px; }
+.step > ol { margin: 0 0 0 -45px; width: calc(100% + 45px);display:table;table-layout: fixed;}
+.step > ol > li { padding: 0 0 0 45px; position: relative;display:table-cell;vertical-align:top;}
+.step > ol > li:before { position: absolute; top: 53px; left: 15px; display: block; content: "";	width: 14px; height: 20px; background: url("//img.ezwelfare.net/welfare_cadmin/images/cadmin_step_icon.png") no-repeat 0 0; }
+.step > ol > li > div.step_container { border: 2px solid #e9e9e9; height: 125px; border-radius: 10px;display:table;width:100%;}
+.step > ol > li > div.step_container strong { padding:20px 5px 20px 5px; text-align: center;color: #333; font-size: 16px;display:table-cell;vertical-align:middle;}
+.step > ol > li > div.step_container span { text-align: center; display: block; color: #999; font-size: 12px;display:table-row;}
+.step > ol > li > div.step_container { border: 2px solid #e9e9e9; }
+.step > ol > li.active > div.step_container > strong { color: #1e9d8b; }
+.step > ol > li.active > div.step_container > span { color: #333;}
+
+/******************************************************************
+	풋터
+*******************************************************************/
+footer {margin:0 auto 100px auto;border:none;width:600px;min-width:auto;max-width:auto;text-align:center;}
+footer span{color:#222;font-family:"notokr-medium" !important;letter-spacing:-0.3px;}
+
+
+
+/******************************************************************
+	login
+*******************************************************************/
+body.admin_login { background: #f5f5f5; }
+body.admin_login *{font-family:"notokr-regular";}
+body.admin_login div.login_form {padding:0 60px 0;width:600px;margin: 209px auto 44px;}
+body.admin_login div.login_form h1{text-align:center;margin-bottom:45px;}
+body.admin_login input[type="checkbox"] + label { font-size:16px;color:#666;font-family:"notokr-regular";}
+body.admin_login div.login_form fieldset legend { display:block;text-align:center;font-family:"notokr-bold";color:#444;font-size:40px;line-height:40px;width:100%;margin:0 0 37px;}
+body.admin_login div.login_form fieldset input[type="text"],
+body.admin_login div.login_form fieldset input[type="password"] {width:100%;height:60px;padding:0 30px 0 60px;font-size:18px;color:#7b7b7b;background:#FFF;font-family:"notokr-light";border-color:#c6c6c6;border-radius:9px;}
+body.admin_login div.login_form fieldset input[type="text"]:focus,
+body.admin_login div.login_form fieldset input[type="password"]:focus { border: 1px solid #1e9d8b; }
+body.admin_login div.login_form fieldset ul { margin: 0 0 19px;  }
+body.admin_login div.login_form fieldset ul > li * { vertical-align: middle;  }
+body.admin_login div.login_form fieldset p { margin: 9px 0 0;  width: 100%; position: relative; }
+body.admin_login div.login_form fieldset p i { width: 20px; height: 24px; position: absolute; top: 20px; left: 28px; z-index: 9; background: url("//img.ezwelfare.net/welfare_cadmin/images/icon_bd.png") no-repeat 0 0; }
+body.admin_login div.login_form fieldset p.input_client i { background: url("//img.ezwelfare.net/welfare_cadmin/images/icon_bd.png") no-repeat 0 0; }
+body.admin_login div.login_form fieldset p.input_client input[type="text"] { color: #333; }
+body.admin_login div.login_form fieldset p.input_adm i { background: url("//img.ezwelfare.net/welfare_cadmin/images/icon_user.png") no-repeat 0 0; }
+body.admin_login div.login_form fieldset p.input_pw i { background: url("//img.ezwelfare.net/welfare_cadmin/images/icon_lock.png") no-repeat 0 0; }
+body.admin_login div.login_form fieldset p span.save_option { display: block; margin: 10px 0 0; }
+body.admin_login div.login_form fieldset label.hidden { display: none; }
+body.admin_login div.login_form .login_btn {text-align: center;margin-top:26px;}
+body.admin_login div.login_form [class^="btn_login"] {background:#1e9d8b;border:1px solid #1e9d8b;font-family:"notokr-medium";width:calc(100% - 2px);border-radius:9px;font-weight:normal;height:60px;line-height:60px;font-size:20px;}
+body.admin_login div.login_form .login_info{float:right;color:#666;font-size:16px;height:19px;line-height:19px;margin:1px 1px 2px 1px;}
+body.admin_login div.login_form .login_info a{display:inline-block;border-bottom: 1px solid #999;padding:0 2px;color:#666;}
+
+/* guide list */
+.guide ul > li { position: relative; padding: 0 0 8px 10px; font-size: 11px; letter-spacing: -1px; word-spacing: 1px; }
+.guide ul > li:before { content: ""; width: 2px; height: 1px; background: #333; position: absolute; left: 0; top: 7px; }
+
+/******************************************************************
+	관리자 인증
+*******************************************************************/
+div.auth_wrap { width: 500px; }
+div.auth_wrap h1 { color: #fff; display: block; font-family: "Noto Sans KR"; font-weight: 700; font-size: 22px; line-height: 100%; width: 100%; margin: 0 0 8px; padding: 24px 20px 0; background: #333; height: 70px; }
+div.auth_wrap .auth_body { padding: 32px 8px; }
+div.auth_wrap .auth_body .tab_content { text-align: center; padding: 10px 50px 30px; margin: 0 0 20px; border-bottom: 1px solid #dcdcdc; }
+div.auth_wrap .auth_body .tab_content p { padding: 30px 0; }
+div.auth_wrap .auth_body .guide { padding: 0 40px; }
+
+/******************************************************************
+	탭 스타일
+*******************************************************************/
+div.tab { margin: 0 0 30px; }
+div.tab ul { display: table;table-layout:fixed;width:100%;border-spacing:2px;}
+div.tab ul li { display:table-cell;}
+div.tab ul li a { font-family: "dotum"; font-weight: bold; display: inline-block; font-size: 16px; width: 100%; height: 50px; border: 1px solid #333; text-align: center; line-height: 50px; background: #fff; color: #333; vertical-align: top;}
+div.tab ul li button { font-family: "dotum"; display: inline-block; font-size: 16px; width: 100%; height: 50px; border: 1px solid #333; text-align: center; line-height: 50px; background: #fff; color: #333; vertical-align: top; }
+div.tab ul li [aria-selected="true"] { border: 1px solid #1e9d8b; border-bottom: none; color: #1e9d8b; position: relative; z-index: 9; }
+
+/******************************************************************
+	작은탭 스타일
+*******************************************************************/
+div.stab { margin: 0 0 30px; }
+div.stab ul { display: table;table-layout:fixed;border-spacing:2px;}
+div.stab ul li {display:table-cell;}
+div.stab ul li a { font-weight: bold; display: inline-block; font-size: 12px; height: 40px; border: 1px solid #333; text-align: center; line-height: 100%; background: #fff; color: #333; vertical-align: top; padding: 13px 30px 0; }
+div.stab ul li button { display: inline-block; font-size: 12px; height: 40px; font-weight: bold; border: 1px solid #333; text-align: center; line-height: 40px; background: #fff; color: #333; vertical-align: top; padding: 0 30px 0; }
+div.stab ul li [aria-selected="true"] { background: #1e9d8b; border: 1px solid #1e9d8b; border-bottom: none; color: #fff; position: relative; z-index: 9; }
+aside[role="banner"] { width: 100px;  position: fixed;  left: 50%;  top: 300px;  z-index: 9999;  margin: 0 0 0 680px; }
+aside[role="banner"] ul li { margin: 0 0 10px; }
+aside[role="banner"] ul li img {vertical-align: top; }
+aside[role="banner"] .topbtn_scrollBox .topbtn_scroll {margin:0 auto;width:46px;text-align:right;}
+aside[role="banner"] .topbtn_scrollBox .topbtn_scroll a {display:inline-block;height:20px;width:46px;overflow:hidden;margin-bottom:4px;font-size:12px;font-weight:bold;text-align:center;line-height:1.5}
+
+body.main aside[role="banner"] { top: 160px; }
+
+
+/******************************************************************
+	이지뷰 목록
+*******************************************************************/
+.ezview_list ul { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; }
+.ezview_list ul li { padding: 0 0 50px; width: 50%; }
+.ezview_list ul li .list_item { display: -webkit-box; display: -ms-flexbox; display: flex; }
+.ezview_list ul li .list_item .thum { position: relative; width: 170px; border: 1px solid #e8e8e8; }
+.ezview_list ul li .list_item .thum span.high { position: absolute; left: 0px; top: 0px; background: #1e9d8b; height: 25px; line-height: 25px; padding: 0 10px; color: #fff; font-weight: bold; }
+.ezview_list ul li .list_item .desc { padding: 28px 40px 10px 14px; }
+.ezview_list ul li .list_item .desc .text span { font-size: 12px; display: block; padding: 0 0 6px; }
+.ezview_list ul li .list_item .desc .text strong { font-size: 16px; display: block; padding: 0 0 11px; }
+.ezview_list ul li .list_item .desc .hash_tag { padding: 0 0 10px; line-height: 20px; }
+.ezview_list ul li .list_item .desc .hash_tag a { font-size: 12px; color: #999 !important; display: inline-block; }
+.ezview_list ul li .list_item .desc .etc em { font-weight: bold; color: #1e9d8b; font-style: normal; }
+.ezview_view span.high { display: inline-block; font-size: 12px; background: #1e9d8b; height: 25px; line-height: 25px; padding: 1px 10px 0; margin: 0 13px 0 0; color: #fff; font-weight: bold; }
+
+/******************************************************************
+	Page Navigation
+*******************************************************************/
+div.page_nav { margin: 0 0 50px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; }
+div.page_nav a { text-align: center; font-size: 12px; font-family: "malgun gothic"; margin: 0 5px; display: inline-block; width: 33px; height: 33px; background: #fff; border: 1px solid #d8d7dc; padding: 9px 0 0; line-height: 100%; }
+div.page_nav strong { text-align: center; font-size: 12px; font-family: "malgun gothic"; margin: 0 5px; display: inline-block; width: 33px; height: 33px; padding: 9px 0 0; line-height: 100%; font-weight: bold; color: #fff !important; background: #333; border: 1px solid #333; }
+div.page_nav a.page_first { text-indent: -2000px; overflow: hidden; background: url("//img.ezwelfare.net/welfare_cadmin/images/icon_page_nav.png") no-repeat 0 0; }
+div.page_nav a.page_prev { text-indent: -2000px; overflow: hidden; background: url("//img.ezwelfare.net/welfare_cadmin/images/icon_page_nav.png") no-repeat -32px 0; }
+div.page_nav a.page_next { text-indent: -2000px;  overflow: hidden; background: url("//img.ezwelfare.net/welfare_cadmin/images/icon_page_nav.png") no-repeat -64px 0; }
+div.page_nav a.page_end { text-indent: -2000px; overflow: hidden; background: url("//img.ezwelfare.net/welfare_cadmin/images/icon_page_nav.png") no-repeat -96px 0; }
+
+/******************************************************************
+	이지뷰 상세
+*******************************************************************/
+.view_head h3 { font-family: "dotum"; color: #333; font-weight: bold; font-size: 16px; border-top: 1px solid #333; border-bottom: 1px solid #e2e2e2; padding: 15px; margin: 0; }
+.view_head h3:before { display: none; }
+.view_head div.hash_tag { color: #333; padding: 15px; border-bottom: 1px solid #c6c6c6; }
+.view_content { margin: 0 0 50px; }
+.view_content .content_area { margin: 20px 0; }
+.service_table dl { border-top: 1px solid #c5c5c5; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; }
+.service_table dl dt { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding: 15px; font-weight: bold; color: #333; width: 140px; background: #f6f6f6; border-bottom: 1px solid #c5c5c5; }
+.service_table dl dd { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding: 15px; width: calc(100% - 140px); border-bottom: 1px solid #c5c5c5; border-left: 1px solid #c5c5c5; }
+.view_button { text-align: center; }
+
+/******************************************************************
+	라디오버튼 리스트
+*******************************************************************/
+ul.radio_list li { display: inline-block;  padding: 2px 0; }
+
+/******************************************************************
+	첨부파일 영역
+*******************************************************************/
+p.file_add_tip { padding: 10px 0; }
+ul.file_add_list li { padding: 0 0 5px; }
+
+/******************************************************************
+	별도 안내글
+*******************************************************************/
+.guide_box { position: relative;  width: 100%;  margin: 0 0 30px;  background: #f6f6f6;  padding: 30px;  border: 1px solid #dcdcdc; }
+.guide_box .message_box { text-align: center;  line-height: 20px;  font-size: 14px;  font-weight: bold; }
+.guide_box .text { font-family: "Noto Sans KR";  line-height: 24px;  font-size: 18px; }
+.guide_box ul.list>li {line-height: 20px;  font-size: 14px;  position: relative;  padding: 0 0 5px 10px; }
+.guide_box ul.list>li:before {position: absolute;  top: 4px;  left: 0;  width: 4px;  height: 4px;  content: "";  background: #333; }
+.guide_box ul.list>li>ul { padding: 5px 0 5px 20px; }
+.guide_box ul.list>li>ul>li { position: relative;   font-size: 14px;  line-height: 20px;  padding: 0 0 0 10px; }
+.guide_box ul.list>li li:before {position: absolute;  top: 10px;  left: 0;  width: 4px;  height: 1px;  content: "";  background: #333; }
+
+/******************************************************************
+	컨텐츠 박스 공통
+*******************************************************************/
+.con_box { margin: 0 0 50px; font-size: 14px; }
+.con_box p { margin: 0 0 20px; font-size: 14px; }
+.con_box ol { padding: 0 0 0 15px; }
+.con_box ol>li { line-height: 20px;  padding: 0 0 10px;  list-style: decimal; }
+.con_box ol>li ul { padding: 5px 0 0 10px; }
+.con_box ol>li li { padding: 5px 0 0; }
+.con_box ol>li li:before { content: "-";  	margin: 0 5px 0 0; }
+.con_box ul.list>li { position: relative;   font-size: 14px;  line-height: 20px;  padding: 0 0 5px 10px; }
+.con_box ul.list>li:before {position: absolute;  top: 8px;  left: 0;  width: 4px;  height: 1px;  content: "";  background: #333; }
+
+/******************************************************************
+	입력폼 안내글
+*******************************************************************/
+.guide_tip {position: relative;  width: 100%;  margin: 0 0 30px;  line-height: 20px;  font-size: 14px; }
+
+.board_head + guide_tip { margin: 0 0 15px; }
+
+.board_edit .guide_tip { margin: 10px 0;   }
+.board_edit + .guide_tip { margin: -20px 0 30px;   }
+.board_list + .guide_tip { margin: -20px 0 30px;   }
+
+.guide_tip ul li,
+.guide_tip p { position: relative;  padding: 0 0 0 8px;  margin: 5px 0; }
+
+.guide_tip ol { padding: 0 0 0 15px; }
+.guide_tip ol>li { line-height: 18px;  padding: 0 0 10px;  list-style: decimal; }
+.guide_tip ol>li ul { padding: 5px 0 0 10px; }
+.guide_tip ol>li li:before { content: "-";  	margin: 0 5px 0 0; }
+.guide_tip .none li { padding: 0; list-style: none; }
+.guide_tip .none li:before { display: none; }
+.guide_tip ul li:before,
+.guide_tip p:before {position: absolute;  left: 0px;  top: 6px;  width: 2px;  height: 2px;  content: "";  background: #666; }
+.guide_tip .button {margin: 10px 0 0;  padding: 10px 0 0;  border-top: 1px solid #ddd;  text-align: right; }
+.search_option { text-align: right;  width: 100%;  margin: 0 0 30px; }
+.search_option * { vertical-align: middle; }
+
+
+/******************************************************************
+	페이지 안내글
+*******************************************************************/
+.page_guide { font-size: 18px;  line-height: 24px;  font-weight: bold;  margin: 0 0 50px; }
+
+/******************************************************************
+	db 추출 체크리스트
+*******************************************************************/
+ul.db_chk_list { text-align: center; }
+ul.db_chk_list li {  display: inline-block;  padding: 0; }
+ul.db_chk_list.left { text-align: left; }
+
+/******************************************************************
+	내부테이블
+*******************************************************************/
+.inner_table {margin: 5px 0;  border: none;  overflow: hidden; }
+.inner_table table { margin: 0 0 0 -1px;  width: calc(100% + 2px); }
+.inner_table table thead th { text-align: center;  font-size: 12px;  padding: 5px 20px;  height: 40px;  background: #f3f3f3;  border: 1px solid #c6c6c6;  border-bottom: 1px solid #c6c6c6; }
+.inner_table table tbody th, .inner_table table tbody td { font-size: 12px;  font-weight: normal;  padding: 5px 20px;  height: 40px;  border: 1px solid #c6c6c6;  border-bottom: 1px solid #c6c6c6;  text-align: center; }
+.inner_table table tbody th { background: #f6f6f6; font-weight: 600; text-align: left; }
+.inner_table table .left {  text-align: left; }
+.inner_table table td p { padding: 2px 0; }
+
+/******************************************************************
+	달력 레이어 스타일 수정 (좌우버튼 위치 변경)
+*******************************************************************/
+.ui-datepicker .ui-datepicker-prev { left: 9px !important; top:5px !important;}
+.ui-datepicker .ui-datepicker-next { right: 9px !important; top:5px !important;}
+
+/******************************************************************
+	정렬 클래스
+*******************************************************************/
+.left { text-align: left !important; }
+.center { text-align: center !important; }
+.right { text-align: right !important; }
+
+/******************************************************************
+	툴팁 스타일
+*******************************************************************/
+.tooltip { display: inline-block; position: relative; }
+.layer_tooltip { position: absolute; left: 0; top: 100%x; z-index: 9999; width: 200px; padding: 10px; background: #fff; border: 2px solid #dcdcdc; }
+.layer_tooltip p.layer_title { position: relative; padding: 0 0 0 10px; font-weight: 600; }
+.layer_tooltip p.layer_title:before {
+	content: "*";
+	margin: 0 5px 0 0;
+}
+
+/******************************************************************
+	팝업
+*******************************************************************/
+div.pop_wrap .pop_head { position: fixed; width: 100%; top: 0; left: 0; z-index: 9999; }
+div.pop_wrap h1 {font-family:'notokr-bold';color: #fff; display: block;  font-weight:normal; font-size: 22px; line-height: 100%; width: 100%; padding: 24px 20px 0; background: #333; height: 70px; }
+div.pop_wrap .pop_body { padding: 90px 15px 20px; font-family: "Noto Sans KR"; }
+div.pop_wrap .ctitle { font-family: "Noto Sans KR"; font-size: 18px; margin: 0 0 20px; font-weight: 500; }
+div.pop_wrap .stitle { font-family: "Noto Sans KR"; font-size: 16px; margin: 0 0 20px; font-weight: 500;}
+div.pop_wrap div.box_container { margin: 0 0 30px; padding: 0; }
+div.pop_wrap div.textarea_form { margin: 0 0 30px; padding: 0; }
+div.pop_wrap div.textarea_form textarea { font-size: 12px; }
+div.pop_wrap div.textarea_form div:first-child { margin: 0 0 10px; }
+div.pop_wrap .guide_tip { margin: 0 0 30px; }
+div.pop_wrap .con_box { margin: 0 0 30px; }
+div.pop_wrap div.board_list { margin: 0 0 30px; }
+div.pop_wrap div.board_edit { margin: 0 0 30px;}
+div.pop_wrap .button_area { margin: 0 0 20px; }
+div.pop_wrap .survey_body * { font-family: "Noto Sans KR"; }
+div.pop_wrap .survey_body div.textarea_form { margin: 0 0 30px; padding: 0 20px; }
+div.pop_wrap .survey_body div.textarea_form textarea { font-size: 16px; }
+div.pop_wrap .survey_body .button_area * { font-family: "Dotum"; }
+
+/******************************************************************
+	공지사항 유형
+*******************************************************************/
+[class^="type_"] { color: #fff; font-size: 11px; line-height: 18px; height: 18px; display: inline-block; padding: 2px 9px 0; -webkit-padding-before: 1px; border-radius: 18px; }
+span.type_ezwel, span.type_admin { background: #333; }
+span.type_staff { background: #019af7; }
+
+/******************************************************************
+	메뉴보기
+*******************************************************************/
+.lev01 { line-height: 100%; padding: 0 0 0 25px; background:url(//img.ezwel.com/welfare/eznew/admin2010/images/common/lev01.jpg) no-repeat 0 50%; }
+.lev02 { line-height: 100%; padding:0 0 0 35px; background:url(//img.ezwel.com/welfare/eznew/admin2010/images/common/lev02.jpg) no-repeat 50%; }
+.lev03 { line-height: 100%; padding:0 0 0 48px; background:url(//img.ezwel.com/welfare/eznew/admin2010/images/common/lev03.jpg) no-repeat 50%; }
+.edit_tip { color: red; font-size: 11px; line-height: 14px; padding: 6px 0 4px !important; }
+.edit_tip:before { content: "*"; margin: 0 5px 0 0; }
+div.input, p.input { margin: 2px 0;}
+
+/******************************************************************
+	워터파크 관리사항
+*******************************************************************/
+.waterpark_manage { padding: 0 15px; margin: 0 0 50px; }
+.waterpark_manage > div:last-child { padding: 20px 0 0; margin: 15px 0 0; border-top: 1px solid #dcdcdc; text-align: center; }
+
+/******************************************************************
+	폰메세지 입력 영역
+*******************************************************************/
+div.message_form { display: flex; }
+div.message_form div.form_area { width: 250px; }
+div.message_form div.addressee { width: calc(100% - 250px); }
+div.cp_message_box { position: relative; width: 220px; height: 414px; background: url("//img.ezwelfare.net/welfare_cadmin/images/bg_phone.jpg") no-repeat; padding: 100px 30px 0; }
+div.cp_message_box .text_count { text-align: right; }
+div.cp_message_box textarea { width: 100%; height: 170px; margin: 0 0 23px; border: none;}
+div.cp_message_box .button_area .msg_send { display: block; width: 100%; height: 23px; line-height: 23px; color: transparent;}
+.address_form { margin: 0 0 20px; }
+
+/******************************************************************
+	개별컨텐츠 : 필독 제도오픈 안내
+*******************************************************************/
+div.db_guide { padding: 0 11px; border-bottom: 1px solid #e2e2e2; }
+.db_guide h4 { font-size: 16px; line-height: 24px; padding: 12px 11px 13px; margin: 0 -15px 18px; border-top: 1px solid #333; border-bottom: 1px solid #e2e2e2; }
+.db_guide h5 { font-size: 14px; margin: 0 0 7px; padding: 0; font-family: "dotum";  }
+.db_guide div.con_box { line-height: 24px; padding: 0; margin: 0 0 30px; }
+.db_guide div.con_box * { font-size: 12px; }
+.db_guide dl dt { color: #0493ff; font-weight: bold; }
+.db_guide dl dt:before { content: "*"; margin: 0 5px 0 0; color: #0493ff; }
+.db_guide dl dd { padding: 6px 0 5px; }
+.db_guide div.con_box p span { font-weight: bold; }
+.db_guide div.con_box p strong { color: #ff0707; }
+.db_guide div.con_box ul li { position: relative; padding: 0 0 0 10px; }
+.db_guide div.con_box ul li:before { content: ""; position: absolute; left: 0px; top: 8px; width: 5px; height: 1px; background: #333; }
+.text_overflow { display: block; width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/******************************************************************
+	소속 셀렉트 박스
+*******************************************************************/
+select.prvcdList { width: 24%; }
+.layer_pop { width: 400px; padding: 40px 20px 20px; border: 2px solid #ddd; position: absolute; background: #fff; z-index: 99; }
+.layer_close { position: absolute; right: 5px; top: 5px; }
+.layer_content { padding: 5px 0; }
+.layer_pop .button_area { margin: 0; }
+.cal_column { display: flex; justify-content: space-between; }
+.cal_column div.calendar { width: 250px; border-top: 1px solid #333; padding: 15px 0 0; }
+.cal_column div.board {	 width: calc(100% - 280px); border-top: 1px solid #333; padding: 15px 0 0; }
+
+/******************************************************************
+	이력서 팝업
+*******************************************************************/
+.resume_profile { display: flex; }
+.resume_profile .board_edit { width: calc(100% - 160px); }
+.resume_profile .photo { text-align: right; width: 160px; }
+.resume_profile .photo .photo_area { margin: 0 auto; width: 109px; height: 145px; background: #eee; }
+
+/******************************************************************
+	온라인 팝업 / 모바일 팝업
+*******************************************************************/
+/* 온라인 팝업 */
+.pop_web_layout { position: relative; z-index: 9999; background: #fff; font-family: "dotum"; padding: 0 20px 60px; line-height: 130%; border-top: 5px solid #0195ff; }
+.pop_web_layout .pop_head i { width: 46px; height: 46px; border-radius: 100%; background-image: url("//img.ezwelfare.net/welfare_cadmin/images/icon_pop_web.png"); background-position: 0 0; background-repeat: no-repeat; position: absolute; left: 50%; top: 26px; margin: 0 0 0 -23px; background-color: #0195ff; }
+.pop_web_layout h1 { position: relative; padding: 90px 20px 15px; font-size: 16px; line-height: 24px; color: #000; text-align: center; font-weight: bold; }
+.pop_web_layout h1:after { content: ""; position: absolute; left: 50%;  top: 100%; width: 10px; height: 1px; margin: 0 0 0 -5px; background: #000; }
+.pop_web_layout .pop_content { padding: 15px 0 0; font-size: 12px; line-height: 18px; color: #000; text-align: center; }
+.pop_web_layout .pop_content strong { font-weight: bold; }
+/* 모바일 팝업 */
+.pop_mob_layout  { position: relative; z-index: 9999; background: #fff; padding: 0 20px 60px; line-height: 140%; border-top: 5px solid #0195ff; font-family: 'Noto Sans KR'; }
+.pop_mob_layout .pop_head i { display: block; width: 60px; height: 60px; border-radius: 100%; background-image: url("//img.ezwelfare.net/welfare_cadmin/images/icon_pop_mob.png"); background-position: 0 0; background-repeat: no-repeat; position: absolute; left: 50%; top: 26px; margin: 0 0 0 -30px; background-color: #0195ff; }
+.pop_mob_layout h1 { position: relative; padding: 105px 20px 0; font-size: 36px; line-height: 46px; color: #191919; text-align: center; font-weight: bold; }
+.pop_mob_layout .pop_content { padding: 30px 0 0; font-size: 20px; line-height: 34px; color: #34323d; text-align: center; }
+.pop_mob_layout .pop_content strong { font-weight: bold; }
+
+/******************************************************************
+	설문조사
+*******************************************************************/
+.survey_body { font-family: 'Noto Sans KR'; font-size: 16px; line-height: 24px;}
+h2.survey_title { padding: 20px; border-bottom: 1px solid #dedede; font-size: 22px; line-height: 28px; }
+.survey_term { color: #0195ff; padding: 20px; font-size: 18px; line-height: 24px; }
+.survey_term dt { display: inline; }
+.survey_term dd { display: inline; }
+.survey_summary { background: #f5f6f8; padding: 30px 20px 20px; font-size: 18px; line-height: 24px; }
+h3.survey_title { padding: 20px; font-size: 18px; line-height: 24px; font-weight: 400; }
+.survey_body .box_container { padding: 10px; border-top: 10px solid #f5f6f8; font-size: 14px !important; line-height: 18px; }
+.survey_box { font-size: 18px; line-height: 18px; padding: 20px; text-align: center; margin: 20px 0; }
+.survey_body input[type="checkbox"] + label { font-size: 16px; }
+.survey_body input[type="radio"] + label { font-size: 16px; }
+.survey_body .item_container { margin: 0 20px; }
+.survey_body .item_container li { padding: 10px; border: 1px solid #dedede; margin: -1px 0 0; }
+.survey_body .textarea_form { margin: 0 0 50px; }
+.survey_body .inner_list li { padding: 2px 0; }
+
+/******************************************************************
+	소속
+*******************************************************************/
+.part_list span:after { content: "/"; margin: 0 5px 0 10px; }
+.part_list span:nth-of-type(1):after { display: none; }
+
+/******************************************************************
+	로딩 영역 레이어
+*******************************************************************/
+.loading_layer:after { content: ""; width: 100%; height: 100%; position: fixed; left: 0; top: 0; right: 0; bottom: 0; background: #000;  opacity: 0.5;  z-index: 99999; }
+.loading_layer .loading_area { position: fixed;  left: 50%;  top: 50%; width: 520px; height: 170px; margin: -85px 0 0 -260px; background: #fff; z-index: 999999; border: 1px solid #c5c5c5; background: #fff url("//img.ezwelfare.net/welfare_cadmin/images/prograss_bar.gif") no-repeat 50% 50%; }
+/* .loading_layer .loading_area strong {} */
+.loading_layer .loading_area:before {
+	content: "Loading";
+	display: block; text-align: center; font-family: 'Noto Sans KR'; font-weight: 500; font-size: 20px; padding: 40px 0 50px;
+}
+.loading_layer .loading_area p { display: block; text-align: center; font-size: 15px; font-family: 'Noto Sans KR'; color: #9a9a9a; }
+
+/******************************************************************
+	라디오버튼 및 체크박스 리스트
+*******************************************************************/
+.inner_monthly_list { padding: 10px 0; }
+.inner_monthly_list ul { display: flex; flex-wrap: wrap; width: 100%; }
+.inner_monthly_list ul li { width: 100px; }
+.inner_monthly_list ul li label { font-weight: 600; }
+
+
+/* 목록형 */
+.board_list { margin: 0 0 50px; border-top: 1px solid #333; }
+.board_list table { width: 100%; }
+.board_list table thead th { font-size: 12px; padding: 5px 10px; height: 50px; background: #f6f6f6; border-right: 1px solid #c6c6c6; border-bottom: 1px solid #c6c6c6; }
+.board_list table thead th + th { border-left: 1px solid #c6c6c6; }
+.board_list table thead th:last-child { border-right: none; }
+.board_list table tbody th, .board_list table tbody td { font-size: 12px; font-weight: normal; padding: 5px 10px; height: 50px; border-right: 1px solid #c6c6c6; border-bottom: 1px solid #c6c6c6; text-align: center; word-break: break-all; }
+.board_list table tbody td * { vertical-align: middle; }
+.board_list table tbody td a:not(.sbtn_com) { color: #1e9d8b; text-decoration: underline; }
+.board_list table tbody th:last-child { border-right: none; }
+.board_list table tbody td:last-child { border-right: none; }
+.board_list table tfoot th, .board_list table tfoot td { font-size: 12px; font-weight: normal; padding: 5px 10px; height: 50px; border-right: 1px solid #c6c6c6; border-bottom: 1px solid #c6c6c6; text-align: center; background: #e5fffc; }
+.board_list table tfoot th:last-child { border-right: none; }
+.board_list table tfoot td:last-child { border-right: none; }
+.board_list table .left { text-align: left; }
+
+
+
+
+/******************************************************************
+	KT GATE 관련 CSS
+*******************************************************************/
+/* 적용사 관리 */
+.corp_chk_list { overflow: hidden;  }
+.corp_chk_list li { float: left; padding: 2px 0; min-width: 25%; width: 25%; line-height: 42px; }
+.corp_chk_list li:first-child { width: 100%; }
+.corp_chk_list li:first-child label { font-weight: 600;}
+
+p.url { width: 400px; }
+p.url a { display: block; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
+
+/* 댓글영역
+.comment_wrap {margin: 0 0 50px; background: #eee; padding: 20px; }
+.comment_wrap .comment_info ul li {padding: 10px 5px; }
+.comment_wrap .comment_info ul li .comment {padding: 5px 0 0; }
+.comment_letter_count {width: calc(100% - 160px); text-align: right; padding: 0 0 10px; }
+.comment_reg {width: 100%; position: relative; display: flex; justify-content: space-around; }
+.comment_reg textarea { width: calc(100% - 160px); height: 100px; }
+.comment_reg [class^="btn_comment_reg"] {width: 150px; line-height: 100px; height: 100px; margin: 0; }
+.comment_wrap .guide_tip { margin: 20px 0 10px; }
+*/
+.board_edit + .textarea { margin: -50px 0 50px; }
+.textarea {
+	padding: 20px 0 15px;
+	border-bottom: 1px solid #c6c6c6;
+	margin: 0 0 50px;
+}
+.textarea img { max-width: 1240px; display: block; }
+@media screen and (max-width: 1280px) {
+  .textarea img { max-width: 940px; }
+}
+
+/******************************************************************
+	캘린더
+*******************************************************************/
+.calendar_table { margin: 0 0 50px; border-top: 1px solid #333; }
+.calendar_table table { width: 100%; }
+.calendar_table table thead th { font-size: 12px; padding: 15px; height: 50px; }
+.calendar_table table tbody td { font-size: 12px; font-weight: normal; height: 150px; border: 1px solid #e2e2e2; vertical-align: top; }
+.calendar_table table tbody td .sch_wrap { padding: 15px; height: 100%; position: relative;}
+.calendar_table table tbody td:hover { background: #e6f4ff; }
+.calendar_table table thead th.sun { color: #ee0200; }
+.calendar_table table thead th.sat { color: #0595f8; }
+.calendar_table table tbody td.sun .dayname { color: #ee0200;}
+.calendar_table table tbody td.sat .dayname { color: #0595f8; }
+.calendar_table table tbody td.sun { border-left: none; }
+.calendar_table table tbody td.sat { border-right: none; }
+.calendar_table table tbody td:first-child .dayname { color: #ee0200;}
+.calendar_table table tbody td:last-child .dayname { color: #0595f8; }
+.calendar_table table tbody td:first-child { border-left: none; }
+.calendar_table table tbody td:last-child { border-right: none; }
+.calendar_table table tbody td .dayname { font-weight: bold; margin: 0 0 10px;}
+.calendar_head { display: table; width: 100%; margin: 0 0 10px;}
+.calendar_head .monthly { display: table-cell; text-align: left; }
+.calendar_head .monthly * { vertical-align: middle; font-family: "Noto Sans KR";  }
+.calendar_head .monthly span { font-size: 15px; }
+.calendar_head .monthly span.current { margin: 0 20px; }
+.calendar_head .monthly strong { font-size: 32px; line-height: 32px; color: #0097ff; }
+.calendar_head .monthly em { font-style: normal; line-height: 32px; }
+.calendar_head .branch { display: table-cell; text-align: right; }
+
+/******************************************************************
+	작은 캘린더
+*******************************************************************/
+.calendar_small_table { margin: 0 0 50px; }
+.calendar_small_table table { width: 100%; }
+.calendar_small_table table thead th { font-size: 12px; padding: 5px; height: 50px; }
+.calendar_small_table table tbody td { font-size: 12px; font-weight: 600; height: 26px; vertical-align: middle; text-align: center; }
+.calendar_small_table table tbody td .sch_wrap { padding: 7px 5px 5px; -webkit-padding-before: 5px; height: 36px; line-height: 26px; }
+.calendar_small_table table tbody td.active .sch_wrap { background: #1e9d8b; border-radius: 100%; height: 36px; line-height: 26px; }
+.calendar_small_table table tbody td.active .sch_wrap .dayname { color: #fff !important; }
+.calendar_small_table table tbody td a { text-decoration: none; }
+.calendar_small_table table thead th:first-child { color: #ee0200; }
+.calendar_small_table table thead th:last-child { color: #0595f8; }
+.calendar_small_table table tbody td:first-child .dayname { color: #ee0200;}
+.calendar_small_table table tbody td:last-child .dayname { color: #0595f8; }
+.calendar_small_table table tbody td .dayname { font-weight: bold; }
+
+.calendar_small_head { width: 100%; margin: 0 0 10px; text-align: center; display: flex; justify-content: center; align-items: center; }
+.calendar_small_head * { vertical-align: middle; font-family: "Noto Sans KR";  }
+.calendar_small_head span { margin: 0 10px; font-size: 15px; display: flex; align-items: center; }
+.calendar_small_head .current strong { color: #1e9d8b; font-size: 32px; line-height: 32px; margin: 0 5px 0 10px; }
+
+.time_table { border-top: 1px solid #c6c6c6; border-bottom: 1px solid #c6c6c6; padding: 10px; }
+.time_table table { width: 100%; }
+.time_table table th { padding: 5px; font-weight: normal; }
+.time_table table td { padding: 5px; }
+
+.sch_layer { padding: 15px; border: 2px solid #c5c5c5; background: #fff; }
+.sch_layer p { margin: 0 0 10px; }
+
+
+/******************************************************************
+	FAQ
+*******************************************************************/
+.faq {
+	border-top: 2px solid #ddd;
+}
+.faq dt {
+	padding: 20px 10px 20px 55px;
+	position: relative;
+	font-family: "Noto Sans KR";
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 1.8;
+	border-bottom: 1px solid #ddd;
+}
+.faq dt span { font-size: 16px; font-family: "Noto Sans KR";	font-weight: 500; }
+.faq dt em {
+	font-family: "arial";
+	font-style: normal;
+	font-weight: 600;
+	position: absolute;
+	left: 25px;
+	top: 20px;
+	color: #0096FF;
+}
+.faq dd {
+	padding: 20px 10px 20px 55px;
+	position: relative;
+	font-family: "Noto Sans KR";
+	font-size: 16px;
+	line-height: 1.8;
+	border-bottom: 1px solid #ddd;
+	background: #f6f6f6;
+}
+
+/******************************************************************
+	복지관메뉴현황
+*******************************************************************/
+section.content_wrap .content_body .menu_tip { font-size: 12px; line-height: 18px; margin: 0; }
+section.content_wrap .content_body .menu_tip::after {content: ""; clear: both; display: block; }
+section.content_wrap .content_body .menu_tip i { display: inline-block; width: 8px; height: 8px; background: #1e9d8b; border-radius: 100%; font-size: 0; text-indent: -9999px; margin: 0 5px 0 30px; }
+section.content_wrap .content_body .menu_tip i.i_cos_b { background: #1e9d8b; }
+section.content_wrap .content_body .menu_tip i.i_cos_n { background: #333; }
+section.content_wrap .content_body .menu_tip em { font-weight: normal; color: #e92837; }
+
+section.content_wrap .content_body .welfare_menu { padding-top: 50px; margin-bottom: 30px; border-top: 1px solid #c6c6c6;}
+section.content_wrap .content_body .welfare_menu:nth-of-type(3) { border-top: none; }
+section.content_wrap .content_body .welfare_menu_list::after {content: ""; clear: both; display: block; }
+section.content_wrap .content_body .welfare_menu_list .list_step { float: left; width: calc(25% - 40px); margin-right: 40px; }
+section.content_wrap .content_body .welfare_menu_list .etitle { padding: 10px 0 0; margin: 0 0 30px; }
+section.content_wrap .content_body .welfare_menu_list .etitle:before { display: none; }
+section.content_wrap .content_body .welfare_menu_list ul::after {content: ""; clear: both; display: block; }
+section.content_wrap .content_body .welfare_menu_list ul li { float: left; width: 100%;  display: table; line-height: 18px; overflow: hidden; margin-bottom: 16px; }
+section.content_wrap .content_body .welfare_menu_list ul li > div.i_cos { display: table-cell; vertical-align: middle; width: 20px; }
+section.content_wrap .content_body .welfare_menu_list ul li p { float: left; }
+section.content_wrap .content_body .welfare_menu_list ul li i { display: block; width: 8px; height: 8px; background: #1e9d8b; border-radius: 100%; font-size: 0; text-indent: -9999px; margin-top: 2px;}
+section.content_wrap .content_body .welfare_menu_list ul li i:nth-of-type(1) { margin-top: 0; }
+section.content_wrap .content_body .welfare_menu_list ul li i.i_cos_b { background: #1e9d8b; }
+section.content_wrap .content_body .welfare_menu_list ul li i.i_cos_n { background: #333; }
+
+
+/******************************************************************
+	IE9 only
+*******************************************************************/
+body.ie9_only select {background: none; padding-right: 0;}
+
+
+/* 팝업 */
+.pop_layer{position:fixed;position:absolute;top:50%;left:50%;display:none;z-index:999;}
+.pop_layer table{width:300px;height: auto;z-index: 100;}
+
+
+/* 생일선물신청현황 : 추가 201229 */
+.mb50 {margin-bottom: 50px;}
+.red {color: red;}
+.board_head .tip_line {line-height: 18px;}
+
+/* Graph area : 추가 201229 */
+.horz-bars .data {width: 300px; text-align: center;}
+.horz-bars .data em {font-style: normal; color: #fff;}
+.horz-bars .bar {float: left; height: 32px; width: 0;}
+.horz-bars .value {float: left; padding: 1px 5px;}
+.horz-bars .data01 .bar {background: #3366cc;}
+.horz-bars .data02 .bar {background: #1e9d8b;}
+.horz-bars .data03 .bar {background: #000;}
+
+.ml10 {margin-left: 10px !important;}
+
+/* 이지b2b 상세 */
+.ezb2b_list{width:1320px;margin:0 0 0 -40px;}
+.ezb2b_list ul{overflow:hidden;padding:0 0 40px 0;}
+.ezb2b_list ul li{float:left;margin:40px 0 0 40px;}
+.ezb2b_list ul li img{vertical-align:top;}
+
+/* 220408 추가 */
+.board_list .assign_his_sel{width:80px;}
+.board_list .assign_his_cls{margin-top:-18px;}
+div.board_list tbody th:last-child.assign_his_last{border:1px solid #c6c6c6;}
+
+/* 220613 추가 */
+/* 220613 추가 : 전출요청 */
+div.pop_wrap .ntitle { font-family: "Noto Sans KR"; font-size: 16px; margin: 0 0 20px; font-weight: 500;}
+div.pop_wrap .ntitle span {font-family: "Noto Sans KR"; font-size: 16px; color: #0295f5}
+table.tf td * {display: inline-block;}
+table.tf .menu_auth > div:nth-of-type(1) {padding: 0;}
+table.tf tr td:first-child {border-left: none;}
+
+[class^="sbtn_exten"] {margin: 5px 0; padding: 0; line-height: 18px; width: 35px; height: 20px; vertical-align: top; color: #fff !important; background: #1e9d8b; border: 1px solid #1e9d8b; border-radius: 3px;; }
+
+
+/******************************************************************
+	레이어 팝업
+*******************************************************************/
+.layer_wrap{display:none;position: fixed;background: #fff;border: 1px solid #ddd;z-index: 10;margin: 0 auto;left: 0;right: 0;width: 500px;}
+.layer_wrap .layer_body{padding: 20px;padding-bottom: 0px;}
+.layer_wrap .layer_body h2{text-align: center;}
+.layer_wrap .layer_body textarea{margin: 0px;height: 150px;width: 458px;resize: none;margin: 10px 0;}
+.layer_body ul{padding:20px;}
+.layer_body ul li{margin: 5px 0;line-height:20px;font-size:14px;}
+/* #layer_loginInfo 로그인 안내 */
+#layer_loginInfo.layer_wrap{top:50%;left:50%;margin-left:-100px;margin-top:-30px;width:398px;box-shadow:5px 5px 10px 0px rgba(0,0,0,0.2);-webkit-box-shadow:5px 5px 10px 0px rgba(0,0,0,0.2);-moz-box-shadow:5px 5px 10px 0px rgba(0,0,0,0.2);}
+#layer_loginInfo.layer_wrap .layer_body{padding:38px 30px 46px 30px;}
+#layer_loginInfo.layer_wrap .layer_body h2{text-align:left;position:relative;color:#444;font-size:22px;line-height:30px;font-family:"notokr-bold";font-weight:normal;margin-bottom:11px;}
+#layer_loginInfo.layer_wrap .layer_body ul{padding:0;}
+#layer_loginInfo.layer_wrap .layer_body ul li{font-size:14px;color:#666;line-height:24px;margin:0;}
+#layer_loginInfo.layer_wrap .layer_body .btn_close{position:absolute;top:25px;right:35px;width:25px;height:25px;background:url("//img.ezwelfare.net/welfare_new/images/meeting_admin/icon_close.png")no-repeat center center;text-indent:-9999em;border:0;padding:0;}	
+/* #layer_pw_change 비밀번호 변경 */
+#layer_pw_change.layer_wrap{top:50%;left:50%;margin-left:-250px;margin-top:-280px;box-shadow:5px 5px 10px 0px rgba(0,0,0,0.2);-webkit-box-shadow:5px 5px 10px 0px rgba(0,0,0,0.2);-moz-box-shadow:5px 5px 10px 0px rgba(0,0,0,0.2);}
+#layer_pw_change.layer_wrap .layer_body{padding:38px 30px 46px 30px;}
+#layer_pw_change.layer_wrap .layer_body h2{text-align:center;position:relative;color:#444;font-size:22px;line-height:30px;font-family:"notokr-bold";font-weight:normal;margin-bottom:11px;}
+#layer_pw_change.layer_wrap .layer_body p{text-align:center;color:#666;font-size:14px;line-height:24px;font-family:"notokr-bold";font-weight:normal;margin-bottom:11px;}
+#layer_pw_change.layer_wrap .layer_body th{text-align: left;}
+#layer_pw_change.layer_wrap .layer_body td{text-align: right;}
+#layer_pw_change.layer_wrap .layer_body td input{width: 100%;}
+#layer_pw_change.layer_wrap .layer_body .button_area{margin: 0;}
+#layer_pw_change.layer_wrap .layer_body ul{padding:11px 0;}
+#layer_pw_change.layer_wrap .layer_body ul li{font-size:14px;color:#666;line-height:24px;margin:0;}
+#layer_pw_change.layer_wrap .layer_body .btn_close{position:absolute;top:25px;right:35px;width:25px;height:25px;background:url("//img.ezwelfare.net/welfare_new/images/meeting_admin/icon_close.png")no-repeat center center;text-indent:-9999em;border:0;padding:0;}
+
+
+/******************************************************************
+	테이블 하단
+*******************************************************************/
+.board_foot { position: relative; display: table; width: 100%; padding: 0 0 10px; }
+.board_foot > div { display: table-cell; padding: 0 0 10px; line-height: 29px; vertical-align: top;}
+.board_foot .tip { display: table-cell; line-height: 29px; padding: 0 0 10px; text-align: right; min-width: 200px; vertical-align: top;}
+
+.mb10{margin-bottom:10px !important;}
+/* 참석자 */
+.attend_box{display:inline-block;width:800px; margin: 2px 0;padding: 0 10px;font-size: 12px;height: 32px;line-height: 29px;color: #333;border: 1px solid #dcdcdc;}
+.attend_box li{display:inline-block;background:#dcdcdc;height: 22px;line-height: 22px;padding:0 7px;margin-right:5px;}
+.attend_close{cursor:pointer;}
+
+
+/* 회의자료 뷰어 */
+/* z-index */
+/* pdf 회의자료: 0 */
+/* slide 반반 버튼: 1 */
+/* slide 화살표 버튼: 2 */
+/* canvas: 3 */
+
+/* 스티커 메모 범위: 4 ~ 12 default:4 */
+
+/* top: 13 */
+/* canvas 드로잉 박스: 14 */
+/* 목차: 15 */
+/* 레이어팝업 배경: 99 */
+/* 레이어팝업 기존내용 지우기: 100 */
+.viewer_wrap{text-align:center;height: 100vh;overflow: hidden;position: relative;} 
+.viewer_wrap *{font-family:'notokr-regular';color:#333;}
+
+.viewer_wrap .drawing_wrap{position: fixed;top: 52px;right: 200px;z-index: 14;width: 350px;height: 410px;padding: 40px 30px 30px;background: url(//img.ezwelfare.net/welfare_new/images/meeting_admin/pallet_border.png) no-repeat 0 center;display: none;} 
+.viewer_wrap .drawing_wrap.on{display: block;} 
+.viewer_wrap .drawing_wrap .drawing_close{position: absolute;top: 40px;right: 30px;width: 25px;height: 25px;cursor: pointer;background: url(//img.ezwelfare.net/welfare_new/images/meeting_admin/pallet_close.png) no-repeat 0 center;} 
+.viewer_wrap .drawing_wrap .drawing_section{text-align: left;padding: 20px 0;} 
+.viewer_wrap .drawing_wrap .drawing_section.drawing_section_middle{padding: 30px 0;} 
+.viewer_wrap .drawing_wrap .drawing_section .drawing_tit{font-size: 20px;font-family:'notokr-bold';padding: 0 0 15px 5px;} 
+.viewer_wrap .drawing_wrap .drawing_section .drawing_color_box .pallet_color{width: 40px;height: 40px;border-radius: 5px;margin-right: 6px;vertical-align: top;} 
+.viewer_wrap .drawing_wrap .drawing_section .drawing_color_box .pallet_color_last{margin-right: 0;background: linear-gradient(red,orange,yellow,green,blue,purple);padding: 13px;border: 2px solid #999;} 
+
+.viewer_wrap .drawing_wrap .drawing_section input[type=range].line_thickness{-webkit-appearance: none; width: 100%; height: 10px;background: linear-gradient(to right, #1e9d8b 0% 5%, #ddd 5% 100%);cursor: e-resize;border-radius: 15px;}
+.viewer_wrap .drawing_wrap .drawing_section input[type=range].line_thickness:focus {outline: none; }
+.viewer_wrap .drawing_wrap .drawing_section input[type=range].line_thickness::-webkit-slider-thumb{-webkit-appearance: none;width: 30px;height: 30px;background: #1e9d8b;border-radius:50%;cursor: e-resize;box-shadow: 2px 2px 3px rgba(0,0,0,0.7);}
+.viewer_wrap .drawing_wrap .drawing_section .range_desc_box{width: 100%;overflow: hidden;margin-top: 15px;font-size: 16px;}
+.viewer_wrap .drawing_wrap .drawing_section .range_desc_box .desc_first{float: left;font-family:"notokr-regular";}
+.viewer_wrap .drawing_wrap .drawing_section .range_desc_box .desc_second{float: right;font-family:'notokr-bold';}
+
+.viewer_wrap .drawing_wrap .drawing_section .control_drawing{display: inline-block;border-radius: 5px;height: 60px;color: #fff;margin-right: 6px;font-family:'notokr-medium';}
+.viewer_wrap .drawing_wrap .drawing_section .back_drawing{width: 74px;background-color: #1e9d8b;}
+.viewer_wrap .drawing_wrap .drawing_section .eraser_drawing{width: 70px;background-color: #000;}
+.viewer_wrap .drawing_wrap .drawing_section .total_drawing{width: 126px;background-color: #666;margin-right: 0;}
+
+.viewer_wrap .viewer_top{position:fixed;top: 0;left: 0;right: 0;z-index: 13;height:72px;/*background:#fff url('../images/header_bg.gif') no-repeat center bottom;background-size:100% 10px;*/border-bottom: 10px solid #999; vertical-align:middle;} 
+.viewer_wrap .viewer_top p{display:inline-block;font-size:30px;font-family:'notokr-bold';line-height:72px;} 
+.viewer_wrap .viewer_top > a{display:inline-block;font-size:24px;line-height:72px;margin:0 25px;color:#333;} 
+.viewer_wrap .viewer_top > a.back{float:left;background:url('../images/viewer_back.png') no-repeat 0 center;padding-left:40px;}
+.viewer_wrap .viewer_top > a.list{float:right;background:url('../images/viewer_list.png') no-repeat 0 center;padding-left:50px;}
+.viewer_wrap .viewer_top > a.drawing{float:right;background:url(//img.ezwelfare.net/welfare_new/images/meeting_admin/viewer_drawing.png) no-repeat 0 center;padding-left:50px;display: none;} 
+.viewer_wrap .viewer_top > a.drawing.on{display: block;} 
+.viewer_wrap .viewer_top > a.stiker_memo{float:right;background:url(//img.ezwelfare.net/welfare_new/images/meeting_admin/viewer_memo.png) no-repeat 0 center;padding-left:50px;display: none;} 
+.viewer_wrap .viewer_top > a.stiker_memo.on{display: block;} 
+.viewer_wrap .viewer_top > a.full{float:right;background:url('../images/viewer_fullscreen_start.png') no-repeat 0 center;padding-left:50px;margin: 0;} 
+.viewer_wrap .viewer_top > a.full.on{background:url(//img.ezwelfare.net/welfare_new/images/meeting_admin/viewer_fullscreen_end01.png) no-repeat 0 center;} 
+
+.viewer_wrap .viewer_body{position: relative;margin:70px auto 0 auto; min-width:980px;max-width:1280px;height: calc(100vh - 72px);} 
+.viewer_wrap .viewer_body .viewer_body_sign{width: 100%;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);} 
+.viewer_wrap .viewer_body .viewer_body_sign .title{font-size:70px;line-height:90px;font-family:'notokr-bold';margin-bottom:30px;} 
+.viewer_wrap .viewer_body .viewer_body_sign .date{font-size:30px;line-height:38px;font-family:'notokr-medium';margin-bottom:180px;} 
+.viewer_wrap .viewer_body .viewer_body_sign .meeting_logo{font-size:30px;line-height:38px;font-family:'notokr-medium';} 
+
+/* .viewer_wrap .viewer_body .viewer_body_sign .hd_logo{display:inline-block !important;}  */
+.viewer_wrap .viewer_bottom{margin-bottom:100px;}
+.viewer_wrap .viewer_bottom > a{display:inline-block;width:49px;height:83px;margin:42px 50px;text-indent:-9999em;background:url('../images/viewer_arrow.png') no-repeat 0 0;}
+.viewer_wrap .viewer_bottom > a.next{background-position:-149px 0;position:relative;}
+.viewer_wrap .viewer_bottom > a.next::before{display:inline-block;position:absolute;top:18px;left:-50px;content:'';width:1px;height:47px;background-position:-101px 0;background:#ddd;}
+.viewer_wrap .viewer_list_layer{position:fixed;z-index: 15;top:0;right:-380px;z-index: 20;width:380px;height:100%;text-align:left;background:#FFF;border-left:1px solid #999;} 
+.viewer_wrap .viewer_list_layer .viewer_list_top{position:relative;padding:0 30px;overflow:hidden;}
+.viewer_wrap .viewer_list_layer .viewer_list_top p{font-size:30px;font-family:'notokr-medium';height:120px;line-height:120px;}
+.viewer_wrap .viewer_list_layer .viewer_list_top .close{position:absolute;top:45px;right:32px;display:block;width:37px;height:37px;text-indent:-9999em;background:url(//img.ezwelfare.net/welfare_new/images/meeting_admin/viewer_close.png) no-repeat 0 0;}
+.viewer_wrap .viewer_list_layer dl{padding:32px 45px;}
+.viewer_wrap .viewer_list_layer dt{color:#1e9d8b;font-size:20px;line-height:40px;font-family:'notokr-bold';}
+.viewer_wrap .viewer_list_layer dd{font-size:16px;line-height:36px;}
+.viewer_wrap .viewer_list_layer dd a{color:#666;}
+.viewer_wrap .viewer_list_layer .viewer_search{position:relative;border:2px solid #666;border-radius:9px;overflow:hidden;height:52px;}
+.viewer_wrap .viewer_list_layer .viewer_search .viewer_search_input{border:0;font-size:16px;height:48px;line-height:48px;margin:0;width:calc(100% - 51px);outline:0;}
+.viewer_wrap .viewer_list_layer .viewer_search .search{position:absolute;top:0;right:0;display:block;width:51px;height:48px;text-indent:-9999em;background:url('../images/viewer_srch.png') no-repeat center center;}
+.viewer_wrap .viewer_list_layer .viewer_search .search_close{position:absolute;top:13px;right:47px;display:block;font-size: 12px;width: 20px;height: 20px;line-height: 20px;background-color: #666;border-radius: 50%;color: #fff;text-align: center;} 
+
+.viewer_wrap .viewer_body .viewer_canvas_img{width: 100%;height: calc(100vh - 72px);} 
+.viewer_wrap canvas{position: fixed;top: 72px;left: 0;z-index: 3;display: none;} 
+.viewer_wrap canvas.on{display: block;}
+
+.viewer_wrap .viewer_slide .slick-prev, 
+.viewer_wrap .viewer_slide .slick-next{content: "";position:absolute;z-index: 2;transform: translateY(-50%);display:inline-block;width:25px;height:42px;margin:0 50px;text-indent:-9999em;background:url(//img.ezwelfare.net/welfare_new/images/meeting_admin/viewer_arrow.png) no-repeat 0 0;background-size:99px auto;cursor: pointer;}
+.viewer_wrap .viewer_slide .slick-prev{top: 47%;left: 0;} 
+.viewer_wrap .viewer_slide .slick-next{top: 44%;right: 0;transform: rotate(180deg);} 
+.viewer_wrap .viewer_slide .slick-prev.slick-disabled,
+.viewer_wrap .viewer_slide .slick-next.slick-disabled{opacity: 0;}
+.viewer_wrap .viewer_slide .viewer_button_02_prev, 
+.viewer_wrap .viewer_slide .viewer_button_02_next{position: absolute;z-index: 1;width: 50%;height: 100%;background-color: transparent;text-indent:-9999em;font-size: 0px;cursor: default;}
+.viewer_wrap .viewer_slide .viewer_button_02_prev{top: 0;left: 0;}
+.viewer_wrap .viewer_slide .viewer_button_02_next{bottom: 0;right: 0;}
+.viewer_wrap .viewer_slide.on .viewer_button_02_prev,
+.viewer_wrap .viewer_slide.on .viewer_button_02_next{display: none;}
+
+/* 참석자 추가 */
+.department_list_box{position:relative;overflow:hidden;min-width:570px;margin-bottom:20px;}
+.department_list_box .left_box{float:left;width:220px;}
+.department_list_box .right_box{float:right;width:290px;}
+.department_list_box  h4{color:#FFF;font-family:"notokr-medium";font-weight:normal;font-size:14px;padding:5px 10px;height:50px;line-height:39px;background:#666;border-bottom:1px solid #c6c6c6;}
+.department_list_box .left_box .department_list .mtree{padding:15px 20px;height:450px;overflow-y:scroll;border:1px solid #999;border-top:0;}
+.department_list_box .right_box .user_list dl{padding:0;height:450px;overflow-y:scroll;border:1px solid #999;border-top:0;font-size:12px;}
+.department_list_box .right_box .user_list dl dt{background:#f5f5f5;height:40px;line-height:40px;padding:0 20px;color:#000;}
+.department_list_box .right_box .user_list dl dd{margin:0 20px;border-bottom: 1px solid #ddd;color:#444;height:30px;line-height:30px;}
+.department_list_box .right_box .user_list dl dd:first-child{margin-top: 15px;} 
+[class^="ibtn_arrow"] {position:absolute;top:50%;left:50%;margin-left:-50px;margin-top:-15px;background:url(//img.ezwelfare.net/welfare_new/images/meeting_admin/icon_arrow.png)no-repeat center 0;width:30px;height:30px;}
+.department_list_box .right_box .user_list input[type="checkbox"] + label{height:19px;padding:0 0 0 22px;}
+.department_list_box .right_box .user_list input[type="checkbox"] + label:before {position: absolute;left: 0;top: 0;content: "";display: inline-block;width:13px;height:19px;background-image:url(//img.ezwelfare.net/welfare_new/images/meeting_admin/icon_checkoff.png);background-repeat: no-repeat;background-position: 0 0;}
+.department_list_box .right_box .user_list input[type="checkbox"]:checked + label:before {background-image:url(//img.ezwelfare.net/welfare_new/images/meeting_admin/icon_checkon.png);}
+.department_list_box .left_box .department_list .mtree .mtree_control {overflow: hidden; margin-bottom: 10px;}
+.department_list_box .left_box .department_list .mtree .mtree_control a{width: 47%;}
+.department_list_box .left_box .department_list .mtree .mtree_control a.sbtn_control_plus{float: left;}
+.department_list_box .left_box .department_list .mtree .mtree_control a.sbtn_control_minus{float: right;}
+.department_list_box .left_box .department_list .mtree li{position: relative; padding-left: 15px;}
+.department_list_box .left_box .department_list .mtree li a::before{content: "";position: absolute;top: 5px;left: 2px;width: 11px;height: 10px;background:url(//img.ezwelfare.net/welfare_new/images/meeting_admin/icon_team.png) no-repeat 0 center;}
+.department_list_box .left_box .department_list .mtree li a.open::before{width: 15px;background:url(//img.ezwelfare.net/welfare_new/images/meeting_admin/icon_team_open.png) no-repeat 0 center;}
+.department_list_box .left_box .department_list .mtree li ul{display: none;}
+.department_list_box .left_box .department_list .mtree li.mtree-open > ul{display: block;}
+.department_list_box .left_box .department_list .mtree li a{display:inline-block;font-size:12px;height:20px;line-height:20px;color:#444;padding-left:4px;}
+.department_list_box .left_box .department_list .mtree li > a.open{font-weight:bold;}
+.department_list_box .left_box .department_list .mtree li.mtree-icon::after{content: "▷";position: absolute;top: 3px;left: -14px;width: 10px;height: 10px;}
+.department_list_box .left_box .department_list .mtree li.mtree-icon.mtree-open::after{content: "▼";}
+
+/* 회의 자료 관리 */
+.file_list_box{overflow: hidden;}
+.file_list_box .left_box{float:left;width:280px;}
+.file_list_box .right_box{float:right;width:940px;}
+.file_list_box .left_box .department_list{height:500px;overflow-y:scroll;border:1px solid #999;} 
+.file_list_box .right_box .table_hscroll{height:500px;overflow-y:scroll;border:1px solid #999;}
+.file_list_box .left_box .department_list h4{color:#FFF;font-family:"notokr-medium";font-weight:normal;font-size:14px;padding:5px 10px;height:50px;line-height:39px;background:#666;border-bottom:1px solid #c6c6c6;}
+.file_list_box .left_box .department_list h4 > a{float: right;margin-top:7px;border:0;}
+.board_head,
+.board_head .stitle{padding-bottom:0;} 
+.file_list_box .left_box .department_list .mtree_2{padding: 10px 0 0 10px;}
+.file_list_box .left_box .department_list .mtree_2 li{position: relative; padding-left:20px;}
+.file_list_box .left_box .department_list .mtree_2 li::before{content: "";position: absolute;top: 5px;left: 10px;width: 11px;height: 10px;background:url("//img.ezwelfare.net/welfare_new/images/meeting_admin/icon_team.png") no-repeat 0 center;}
+.file_list_box .left_box .department_list .mtree_2 li.open::before{width: 15px;background:url("//img.ezwelfare.net/welfare_new/images/meeting_admin/icon_team_open.png") no-repeat 0 center;}
+.file_list_box .left_box .department_list .mtree_2 li input[type="text"]{padding: 0 4px;margin: 0 0 2px 0;border: 0;cursor: pointer;outline: 0;display:inline-block;font-size:12px;height:20px;line-height:20px;color:#444;}
+.file_list_box .left_box .department_list .mtree_2 li input[type="text"].dbon{border: 1px solid #dcdcdc;}
+.file_list_box .left_box .department_list .mtree_2 li > input.open{font-weight:bold;}
+.file_list_box .right_box .tip .file_list_title{font-size: 12px;}
+.file_list_box .right_box .tip .file_list_select{vertical-align: middle;}
+.ui-datepicker select.ui-datepicker-month,
+.ui-datepicker select.ui-datepicker-year{padding: 1px 0 0 1px;line-height: 1 !important;}
+.ui-datepicker .ui-datepicker-prev span, 
+.ui-datepicker .ui-datepicker-next span{margin-top: -14px !important;}
+.ui-datepicker .ui-datepicker-prev span{background: url("https://img.ezwelfare.net/welfare_new/images/icon/jquery_ui/220907icon_date_picker2.png")no-repeat 0 0 !important;}
+.ui-datepicker .ui-datepicker-next span{background: url("https://img.ezwelfare.net/welfare_new/images/icon/jquery_ui/220907icon_date_picker2.png")no-repeat -20px 0 !important;}
+.ui-datepicker th.ui-datepicker-week-end,
+.ui-datepicker td.ui-datepicker-week-end a{color: #1e9d8b !important;}
+.ui-datepicker td a.ui-state-active{background-color: #1e9d8b !important;}
+
+input.file_upload{height: 29px;cursor: pointer;}
+
+.stitle.stitle_height{height: 43px;}
+.tip.tip_position{position: relative; top: -19px;}
+
+input[type="text"].upload_file_box{width: 90%;}
+
+/* 221214 기존 내용 지우기 경고 팝업창 */
+.viewer_wrap .viewer_total_drawing_layer{position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);z-index: 100; width: 400px;background-color: #fff;padding: 30px;display: none;}
+.viewer_wrap .viewer_total_drawing_layer.on{display: block;}
+.viewer_wrap .viewer_total_drawing_layer .drawing_layer_tit{font-size: 16px;font-weight: bold;color: #666;text-align: center;margin-bottom: 20px;}
+.viewer_wrap .viewer_total_drawing_layer .drawing_layer_btn_wrap .drawing_layer_btn{display: inline-block;width: 70px;height: 30px;line-height: 30px;color: #fff;background-color: #000;}
+.viewer_wrap .viewer_total_drawing_layer .drawing_layer_btn_wrap .drawing_layer_btn:hover{background-color: #666;}
+.viewer_wrap .viewer_total_drawing_layer .drawing_layer_btn_wrap .drawing_layer_btn_yes{margin-right: 10px;background-color: #1e9d8b;}
+.viewer_wrap .layer_bg{position: absolute;top: 0;left: 0;z-index: 99;width: 100%;height: 100vh;background-color: rgba(0,0,0,0.5);display: none;}
+.viewer_wrap .layer_bg.on{display: block;}
+
+/* 221219 스티커 메모 */
+.sticky {position: fixed;top: 80px;left: 10px;z-index: 4;padding: 50px 20px 20px;float: left; background-color: #ffffe0;box-shadow: 5px 5px 10px -2px rgba(33,33,33,.3);}
+.sticky:hover {cursor: move;}
+.sticky .sticky_header {width: 100%;height: 30px;position: absolute;top: 0;left: 0;overflow: hidden;background-color: #f9f978;}
+.sticky .sticky_header .sticky_close{font-size: 24px;width: 20px;height: 24px;line-height: 20px;margin: 3px 3px 0 0;float: right;font-style: normal;cursor: pointer;color: #000;background-color: #fff;text-align: center;}
+.sticky_cont {background-color: #ffffe0;border: none;resize: both;width: 160px;height: 230px;min-width: 150px;min-height: 70px;padding: 5px;font-size: 16px;}
+/* textarea:focus {outline: none;border: none;box-shadow: 0 0 5px 1px rgba(0,0,0,.2) inset;} */
+.sticky_cont:focus{outline: none;border: none;box-shadow: 0 0 5px 1px rgba(0,0,0,.2) inset;}
+
+/* 221214 tablet */
+@media (max-width: 1400px){
+	.viewer_wrap .viewer_body .viewer_canvas_img{width: 80%;margin-left: 10%;} 
+}
